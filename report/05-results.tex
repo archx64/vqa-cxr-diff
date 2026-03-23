@@ -1,0 +1,43 @@
+\setlength{\footskip}{8mm}
+
+\chapter{RESULT}
+First remind your readers how you analyze the data in detail here before jumping to results
+
+\textbf{One good way is to sectionize your result based on your research questions.
+}
+\textbf{Use tables and figures to help explain your results.   
+}
+
+\section{Result Corresponding to RQ1}
+
+Example table (see Table \ref{tab:results1}).
+
+\begin{table}[hbt!]
+\caption{Some amazing table that we hope good results}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lcccccc}
+\hline
+\multicolumn{1}{c}{\textbf{}}                                & \multicolumn{3}{c}{\textbf{XSUM}}          & \multicolumn{3}{c}{\textbf{SQUAD}}         \\ \cline{2-7} 
+\multicolumn{1}{c}{\textbf{Model}}                           & \textbf{R-1} & \textbf{R-2} & \textbf{R-L} & \textbf{R-1} & \textbf{R-2} & \textbf{R-L} \\ \hline
+(A) Multi-task + Shared-prefix + Frozen Pretrained           & XXX          & XXX          & XXX          & XXX          & XXX          & XXX          \\
+(B) Multi-task + Shared-prefix +Unfrozen Pretrained          & XXX          & XXX          & XXX          & XXX          & XXX          & XXX          \\
+(C) Multi-task + Without shared-prefix + Frozen Pretrained   & XXX          & XXX          & XXX          & XXX          & XXX          & XXX          \\
+(D) Multi-task + Without shared-prefix +Unfrozen Pretrained  & XXX          & XXX          & XXX          & XXX          & XXX          & XXX          \\
+(E) Single-task + Shared-prefix + Frozen Pretrained          & 42.8         & 20.93        & 35.05        & XXX          & XXX          & XXX          \\
+(F) Single-task + Shared-prefix +Unfrozen Pretrained         & 44.5         & 21.66        & 36.73        & XXX          & XXX          & XXX          \\
+(G) Single-task + Without shared-prefix + Frozen Pretrained  & 43.8         & 20.93        & 36.05        & XXX          & XXX          & XXX          \\
+(H) Single-task + Without shared-prefix +Unfrozen Pretrained & XXX          & XXX          & XXX          & XXX          & XXX          & XXX          \\ \hline
+BART (Full-fine-tuning)                                      & \textbf{45.14}        & 22.27        & 37.25        & XXX          & XXX          & XXX          \\ \hline
+\end{tabular}%
+}
+\label{tab:results1}
+\end{table}
+
+\section{Result Corresponding to RQ2}
+
+\section{Result Corresponding to RQ3}
+
+\section{Further Analysis}
+You can further analyze your results by digger deeper to your data.  Researchers love this!!
+\subsection{Ablation Studies}
+\subsection{Analyzing Distribution}

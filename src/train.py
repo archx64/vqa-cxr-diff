@@ -47,34 +47,35 @@ def parse_args():
     parser.add_argument("--test_pairs_csv", type=str)
     parser.add_argument("--test_meta_csv", type=str)
 
-    parser.add_argument("--backbone", type=str, default="swin_tiny_patch4_window7_224")
+    parser.add_argument("--backbone", type=str)
     parser.add_argument("--freeze_backbone", action="store_true")
     parser.add_argument("--ckpt", type=str, default="")
 
     parser.add_argument("--text_encoder", type=str)
     parser.add_argument("--text_model_name", type=str)
     parser.add_argument("--text_finetune", action="store_true")
-    parser.add_argument("--text_dim", type=int, default=768)
-    parser.add_argument("--text_proj_dim", type=int, default=768)
-    parser.add_argument("--max_ans_len", type=int, default=100)
+    parser.add_argument("--text_dim", type=int)
+    parser.add_argument("--text_proj_dim", type=int)
+    parser.add_argument("--max_ans_len", type=int)
     parser.add_argument("--topk", type=int, default=64)
 
-    parser.add_argument("--bs", type=int, default=48)
+    parser.add_argument("--bs", type=int)
     parser.add_argument("--lr", type=float, default=5e-5)
-    parser.add_argument("--num_workers", type=int, default=8)
-    parser.add_argument("--epochs_mrm", type=int, default=1)
-    parser.add_argument("--epochs_warmup", type=int, default=1)
+    parser.add_argument("--num_workers", type=int)
+    parser.add_argument("--epochs_mrm", type=int)
+    parser.add_argument("--epochs_warmup", type=int)
     parser.add_argument("--epochs_vqa", type=int, default=20)
-    parser.add_argument("--mask_ratio", type=float, default=0.5)
+    parser.add_argument("--mask_ratio", type=float)
 
-    parser.add_argument("--main_loss_weight", type=float, default=1.0)
-    parser.add_argument("--lambda_mrm", type=float, default=0.1)
-    parser.add_argument("--lambda_cf", type=float, default=0.1)
-    parser.add_argument("--lambda_cls", type=float, default=0.5)
-    parser.add_argument("--lambda_gate", type=float, default=0.01)
+    parser.add_argument("--main_loss_weight", type=float)
+    parser.add_argument("--lambda_mrm", type=float)
+    parser.add_argument("--lambda_cf", type=float)
+    parser.add_argument("--lambda_cls", type=float)
+    parser.add_argument("--lambda_gate", type=float)
 
-    parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--seed", type=int)
     parser.add_argument("--ablation_no_direction", action="store_true")
+    parser.add_argument("--use_cida", action="store_true")
 
     args = parser.parse_args()
 
@@ -296,7 +297,7 @@ def main(args):
     if not logger.hasHandlers():
         logger = setup_logging("logs/train.log")
 
-    model_name = f"SWIN_{args.topk}_cls-{args.lambda_cls}"
+    model_name = f"SWIN_{args.topk}_cls-{args.lambda_cls}_cf-{args.lambda_cf}_usecida-{args.use_cida}"
     try:
         run = neptune.init_run(
             project=NEPTUNE_PROJECT, name=model_name, api_token=NEPTUNE_API_TOKEN
@@ -345,6 +346,7 @@ def main(args):
         num_classes=len(vocab[1]),
         max_ans_len=args.max_ans_len,
         mask_ratio=args.mask_ratio,
+        use_cida=args.use_cida,
     ).to(device)
 
     # Differential LR
@@ -432,7 +434,7 @@ def main(args):
             }
             torch.save(state, f"models/{model_name}_best.pth")
             logger.info(f"*** new best model saved (CIDEr: {best_cider:.4f}) ***")
-    
+
     torch.save(state, f"models/{model_name}_last.pth")
 
     if run:

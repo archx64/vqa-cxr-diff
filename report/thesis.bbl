@@ -1,0 +1,691 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Alsentzer%
+\ \protect \BOthers {.}}{%
+Alsentzer%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2019}}%
+}]{%
+bio-clinical-bert}
+\APACinsertmetastar {%
+bio-clinical-bert}%
+\begin{APACrefauthors}%
+Alsentzer, E.%
+, Murphy, J.%
+, Boag, W.%
+, Weng, W\BHBI H.%
+, Jindi, D.%
+, Naumann, T.%
+\BCBL {}\ \BBA {} McDermott, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{{\APACmonth{06}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Publicly Available Clinical {BERT} Embeddings} {Publicly
+  available clinical {BERT} embeddings}.{\BBCQ}
+\newblock
+\BIn{} A.~Rumshisky, K.~Roberts, S.~Bethard\BCBL {}\ \BBA {} T.~Naumann\
+  (\BEDS), \APACrefbtitle {Proceedings of the 2nd Clinical Natural Language
+  Processing Workshop} {Proceedings of the 2nd clinical natural language
+  processing workshop}\ (\BPGS\ 72--78).
+\newblock
+\APACaddressPublisher{Minneapolis, Minnesota, USA}{Association for
+  Computational Linguistics}.
+\newblock
+\begin{APACrefURL} \url{https://aclanthology.org/W19-1909/} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.18653/v1/W19-1909} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Banerjee%
+\ \BBA {} Lavie%
+}{%
+Banerjee%
+\ \BBA {} Lavie%
+}{%
+{\protect \APACyear {2005}}%
+}]{%
+meteor}
+\APACinsertmetastar {%
+meteor}%
+\begin{APACrefauthors}%
+Banerjee, S.%
+\BCBT {}\ \BBA {} Lavie, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2005}{{\APACmonth{06}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{METEOR}: An Automatic Metric for {MT} Evaluation with
+  Improved Correlation with Human Judgments} {{METEOR}: An automatic metric for
+  {MT} evaluation with improved correlation with human judgments}.{\BBCQ}
+\newblock
+\BIn{} J.~Goldstein, A.~Lavie, C\BHBI Y.~Lin\BCBL {}\ \BBA {} C.~Voss\ (\BEDS),
+  \APACrefbtitle {Proceedings of the {ACL} Workshop on Intrinsic and Extrinsic
+  Evaluation Measures for Machine Translation and/or Summarization}
+  {Proceedings of the {ACL} workshop on intrinsic and extrinsic evaluation
+  measures for machine translation and/or summarization}\ (\BPGS\ 65--72).
+\newblock
+\APACaddressPublisher{Ann Arbor, Michigan}{Association for Computational
+  Linguistics}.
+\newblock
+\begin{APACrefURL} \url{https://aclanthology.org/W05-0909/} \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Cho%
+, Kim%
+, Shin%
+, Cho%
+\BCBL {}\ \BBA {} Shin%
+}{%
+Cho%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2024}}%
+}]{%
+plural}
+\APACinsertmetastar {%
+plural}%
+\begin{APACrefauthors}%
+Cho, Y.%
+, Kim, T.%
+, Shin, H.%
+, Cho, S.%
+\BCBL {}\ \BBA {} Shin, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Pretraining Vision-Language Model for Difference Visual
+  Question Answering in Longitudinal Chest X-rays} {Pretraining vision-language
+  model for difference visual question answering in longitudinal chest
+  x-rays}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Medical Imaging with Deep Learning.} {Medical imaging
+  with deep learning.}
+\newblock
+\begin{APACrefURL} \url{https://openreview.net/forum?id=QTFVYcV92b}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+He%
+, Zhang%
+, Ren%
+\BCBL {}\ \BBA {} Sun%
+}{%
+He%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+resnet101}
+\APACinsertmetastar {%
+resnet101}%
+\begin{APACrefauthors}%
+He, K.%
+, Zhang, X.%
+, Ren, S.%
+\BCBL {}\ \BBA {} Sun, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+\APACrefbtitle {Deep Residual Learning for Image Recognition.} {Deep residual
+  learning for image recognition.}
+\newblock
+\begin{APACrefURL}
+  \url{https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Hu%
+\ \protect \BOthers {.}}{%
+Hu%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2023}}%
+}]{%
+ekaid}
+\APACinsertmetastar {%
+ekaid}%
+\begin{APACrefauthors}%
+Hu, X.%
+, Gu, L.%
+, An, Q.%
+, Zhang, M.%
+, Liu, L.%
+, Kobayashi, K.%
+\BDBL {}Zhu, Y.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2023}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Expert Knowledge-Aware Image Difference Graph
+  Representation Learning for Difference-Aware Medical Visual Question
+  Answering} {Expert knowledge-aware image difference graph representation
+  learning for difference-aware medical visual question answering}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the 29th ACM SIGKDD Conference on
+  Knowledge Discovery and Data Mining} {Proceedings of the 29th acm sigkdd
+  conference on knowledge discovery and data mining}\ (\BPG~4156–4165).
+\newblock
+\APACaddressPublisher{New York, NY, USA}{Association for Computing Machinery}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1145/3580305.3599819}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1145/3580305.3599819} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Hu%
+\ \protect \BOthers {.}}{%
+Hu%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2025}}%
+}]{%
+medical-diff-vqa}
+\APACinsertmetastar {%
+medical-diff-vqa}%
+\begin{APACrefauthors}%
+Hu, X.%
+, Gu, L.%
+, An, Q.%
+, Zhang, M.%
+, liu, l.%
+, Kobayashi, K.%
+\BDBL {}Zhu, Y.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{February}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Medical-Diff-VQA: A Large-Scale Medical Dataset for
+  Difference Visual Question Answering on Chest X-Ray Images}
+  {Medical-diff-vqa: A large-scale medical dataset for difference visual
+  question answering on chest x-ray images}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{PhysioNet}{}{}{}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.13026/e6dd-cn74} \end{APACrefURL}
+\newblock
+\APACrefnote{Version 1.0.1}
+\newblock
+\begin{APACrefDOI} \doi{10.13026/e6dd-cn74} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Johnson%
+, Lungren%
+\BCBL {}\ \protect \BOthers {.}}{%
+Johnson%
+, Lungren%
+\BCBL {}\ \protect \BOthers {.}}{%
+{\protect \APACyear {2024}}%
+}]{%
+mimic-cxr-jpg}
+\APACinsertmetastar {%
+mimic-cxr-jpg}%
+\begin{APACrefauthors}%
+Johnson, A.%
+, Lungren, M.%
+, Peng, Y.%
+, Lu, Z.%
+, Mark, R.%
+, Berkowitz, S.%
+\BCBL {}\ \BBA {} Horng, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{{\APACmonth{03}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{MIMIC-CXR-JPG - chest radiographs with structured
+  labels}} {{MIMIC-CXR-JPG - chest radiographs with structured labels}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{{PhysioNet}}{}{}{}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.13026/jsn5-t979} \end{APACrefURL}
+\newblock
+\APACrefnote{Version 2.1.0}
+\newblock
+\begin{APACrefDOI} \doi{10.13026/jsn5-t979} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Johnson%
+, Pollard%
+, Mark%
+, Berkowitz%
+\BCBL {}\ \BBA {} Horng%
+}{%
+Johnson%
+, Pollard%
+\BCBL {}\ \protect \BOthers {.}}{%
+{\protect \APACyear {2024}}%
+}]{%
+mimic-cxr}
+\APACinsertmetastar {%
+mimic-cxr}%
+\begin{APACrefauthors}%
+Johnson, A.%
+, Pollard, T.%
+, Mark, R.%
+, Berkowitz, S.%
+\BCBL {}\ \BBA {} Horng, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{{\APACmonth{07}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {MIMIC-CXR Database} {Mimic-cxr database}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{PhysioNet}{}{}{}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.13026/4jqj-jw95} \end{APACrefURL}
+\newblock
+\APACrefnote{Version 2.1.0}
+\newblock
+\begin{APACrefDOI} \doi{10.13026/4jqj-jw95} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+C\BHBI Y.~Lin%
+}{%
+C\BHBI Y.~Lin%
+}{%
+{\protect \APACyear {2004}}%
+}]{%
+rouge}
+\APACinsertmetastar {%
+rouge}%
+\begin{APACrefauthors}%
+Lin, C\BHBI Y.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2004}{{\APACmonth{07}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {ROUGE: A Package for Automatic Evaluation of Summaries}
+  {Rouge: A package for automatic evaluation of summaries}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Text Summarization Branches Out} {Text summarization
+  branches out}\ (\BPGS\ 74--81).
+\newblock
+\APACaddressPublisher{Barcelona, Spain}{Association for Computational
+  Linguistics}.
+\newblock
+\begin{APACrefURL} \url{https://aclanthology.org/W04-1013/} \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+T\BHBI Y.~Lin%
+\ \protect \BOthers {.}}{%
+T\BHBI Y.~Lin%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2014}}%
+}]{%
+MS-COCO}
+\APACinsertmetastar {%
+MS-COCO}%
+\begin{APACrefauthors}%
+Lin, T\BHBI Y.%
+, Maire, M.%
+, Belongie, S.%
+, Hays, J.%
+, Perona, P.%
+, Ramanan, D.%
+\BDBL {}Tuytelaars, T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Microsoft COCO: Common Objects in Context} {Microsoft
+  coco: Common objects in context}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Computer Vision -- ECCV 2014} {Computer vision -- eccv
+  2014}\ (\BPGS\ 740--755).
+\newblock
+\APACaddressPublisher{Cham}{Springer International Publishing}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Liu%
+\ \protect \BOthers {.}}{%
+Liu%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2021}}%
+}]{%
+swin}
+\APACinsertmetastar {%
+swin}%
+\begin{APACrefauthors}%
+Liu, Z.%
+, Lin, Y.%
+, Cao, Y.%
+, Hu, H.%
+, Wei, Y.%
+, Zhang, Z.%
+\BDBL {}Guo, B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2021}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Swin Transformer: Hierarchical Vision Transformer using
+  Shifted Windows} {Swin transformer: Hierarchical vision transformer using
+  shifted windows}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the IEEE/CVF International Conference on
+  Computer Vision (ICCV)} {Proceedings of the ieee/cvf international conference
+  on computer vision (iccv)}\ (\BPGS\ 10012--10022).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Lu%
+\ \protect \BOthers {.}}{%
+Lu%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2024}}%
+}]{%
+real}
+\APACinsertmetastar {%
+real}%
+\begin{APACrefauthors}%
+Lu, Z.%
+, Xie, Y.%
+, Zeng, Q.%
+, Lu, M.%
+, Wu, Q.%
+\BCBL {}\ \BBA {} Xia, Y.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{October}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Spot the Difference: Difference Visual Question
+  Answering with Residual Alignment} {Spot the difference: Difference visual
+  question answering with residual alignment}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {proceedings of Medical Image Computing and Computer
+  Assisted Intervention -- MICCAI 2024} {proceedings of medical image computing
+  and computer assisted intervention -- miccai 2024}\ (\BVOL\ LNCS 15005).
+\newblock
+\APACaddressPublisher{}{Springer Nature Switzerland}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Marhuenda%
+, Obrador-Reina%
+, Aas-Alas%
+, Albiol%
+\BCBL {}\ \BBA {} Paredes%
+}{%
+Marhuenda%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2025}}%
+}]{%
+encoder-decoder}
+\APACinsertmetastar {%
+encoder-decoder}%
+\begin{APACrefauthors}%
+Marhuenda, L\BHBI J.%
+, Obrador-Reina, M.%
+, Aas-Alas, M.%
+, Albiol, A.%
+\BCBL {}\ \BBA {} Paredes, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2025}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Unveiling Differences: A Vision Encoder-Decoder Model
+  for Difference Medical Visual Question Answering} {Unveiling differences: A
+  vision encoder-decoder model for difference medical visual question
+  answering}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Medical Imaging with Deep Learning.} {Medical imaging
+  with deep learning.}
+\newblock
+\begin{APACrefURL} \url{https://openreview.net/forum?id=8CNssOg7fk}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Oliveira~dos Santos%
+, Colombini%
+\BCBL {}\ \BBA {} Avila%
+}{%
+Oliveira~dos Santos%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2021}}%
+}]{%
+cider}
+\APACinsertmetastar {%
+cider}%
+\begin{APACrefauthors}%
+Oliveira~dos Santos, G.%
+, Colombini, E\BPBI L.%
+\BCBL {}\ \BBA {} Avila, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2021}{{\APACmonth{11}}}{}.
+\newblock
+{\BBOQ}\APACrefatitle {CIDEr-R: Robust Consensus-based Image Description
+  Evaluation} {Cider-r: Robust consensus-based image description
+  evaluation}.{\BBCQ}
+\newblock
+\BIn{} W.~Xu, A.~Ritter, T.~Baldwin\BCBL {}\ \BBA {} A.~Rahimi\ (\BEDS),
+  \APACrefbtitle {Proceedings of the Seventh Workshop on Noisy User-generated
+  Text (W-NUT 2021)} {Proceedings of the seventh workshop on noisy
+  user-generated text (w-nut 2021)}\ (\BPGS\ 351--360).
+\newblock
+\APACaddressPublisher{Online}{Association for Computational Linguistics}.
+\newblock
+\begin{APACrefURL} \url{https://aclanthology.org/2021.wnut-1.39/}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.18653/v1/2021.wnut-1.39} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Papineni%
+, Roukos%
+, Ward%
+\BCBL {}\ \BBA {} Zhu%
+}{%
+Papineni%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2002}}%
+}]{%
+bleu}
+\APACinsertmetastar {%
+bleu}%
+\begin{APACrefauthors}%
+Papineni, K.%
+, Roukos, S.%
+, Ward, T.%
+\BCBL {}\ \BBA {} Zhu, W\BHBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2002}{jul}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Bleu: a Method for Automatic Evaluation of Machine
+  Translation} {Bleu: a method for automatic evaluation of machine
+  translation}.{\BBCQ}
+\newblock
+\BIn{} P.~Isabelle, E.~Charniak\BCBL {}\ \BBA {} D.~Lin\ (\BEDS),
+  \APACrefbtitle {Proceedings of the 40th Annual Meeting of the Association for
+  Computational Linguistics} {Proceedings of the 40th annual meeting of the
+  association for computational linguistics}\ (\BPGS\ 311--318).
+\newblock
+\APACaddressPublisher{Philadelphia, Pennsylvania, USA}{Association for
+  Computational Linguistics}.
+\newblock
+\begin{APACrefURL} \url{https://aclanthology.org/P02-1040/} \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.3115/1073083.1073135} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Paszke%
+\ \protect \BOthers {.}}{%
+Paszke%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2019}}%
+}]{%
+pytorch}
+\APACinsertmetastar {%
+pytorch}%
+\begin{APACrefauthors}%
+Paszke, A.%
+, Gross, S.%
+, Massa, F.%
+, Lerer, A.%
+, Bradbury, J.%
+, Chanan, G.%
+\BDBL {}Chintala, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {PyTorch: an imperative style, high-performance deep
+  learning library} {Pytorch: an imperative style, high-performance deep
+  learning library}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the 33rd International Conference on
+  Neural Information Processing Systems.} {Proceedings of the 33rd
+  international conference on neural information processing systems.}
+\newblock
+\APACaddressPublisher{Red Hook, NY, USA}{Curran Associates Inc.}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ren%
+, He%
+, Girshick%
+\BCBL {}\ \BBA {} Sun%
+}{%
+Ren%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2015}}%
+}]{%
+faster-rcnn}
+\APACinsertmetastar {%
+faster-rcnn}%
+\begin{APACrefauthors}%
+Ren, S.%
+, He, K.%
+, Girshick, R.%
+\BCBL {}\ \BBA {} Sun, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Faster R-CNN: towards real-time object detection with
+  region proposal networks} {Faster r-cnn: towards real-time object detection
+  with region proposal networks}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the 29th International Conference on
+  Neural Information Processing Systems - Volume 1} {Proceedings of the 29th
+  international conference on neural information processing systems - volume
+  1}\ (\BPG~91–99).
+\newblock
+\APACaddressPublisher{Cambridge, MA, USA}{MIT Press}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+You%
+\ \protect \BOthers {.}}{%
+You%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2023}}%
+}]{%
+cxr-clip}
+\APACinsertmetastar {%
+cxr-clip}%
+\begin{APACrefauthors}%
+You, K.%
+, Gu, J.%
+, Ham, J.%
+, Park, B.%
+, Kim, J.%
+, Hong, E\BPBI K.%
+\BDBL {}Roh, B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2023}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {CXR-CLIP: Toward Large Scale Chest X-ray Language-Image
+  Pre-training} {Cxr-clip: Toward large scale chest x-ray language-image
+  pre-training}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Medical Image Computing and Computer Assisted
+  Intervention – MICCAI 2023: 26th International Conference, Vancouver, BC,
+  Canada, October 8–12, 2023, Proceedings, Part II} {Medical image computing
+  and computer assisted intervention – miccai 2023: 26th international
+  conference, vancouver, bc, canada, october 8–12, 2023, proceedings, part
+  ii}\ (\BPG~101–111).
+\newblock
+\APACaddressPublisher{Berlin, Heidelberg}{Springer-Verlag}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1007/978-3-031-43895-0_10}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1007/978-3-031-43895-0_10} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Yung%
+\ \protect \BOthers {.}}{%
+Yung%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2024}}%
+}]{%
+regiomix}
+\APACinsertmetastar {%
+regiomix}%
+\begin{APACrefauthors}%
+Yung%
+, Evangelos~B., K\BHBI W.%
+, Sivaraj, J.%
+, Stoyanov, D.%
+, Loukogeorgakis, S.%
+\BCBL {}\ \BBA {} Mazomenos.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Region-Specific Retrieval Augmentation for Longitudinal
+  Visual Question Answering: A Mix-and-Match Paradigm} {Region-specific
+  retrieval augmentation for longitudinal visual question answering: A
+  mix-and-match paradigm}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Medical Image Computing and Computer Assisted
+  Intervention – MICCAI 2024: 27th International Conference, Marrakesh,
+  Morocco, October 6–10, 2024, Proceedings, Part V} {Medical image computing
+  and computer assisted intervention – miccai 2024: 27th international
+  conference, marrakesh, morocco, october 6–10, 2024, proceedings, part v}\
+  (\BPG~585–594).
+\newblock
+\APACaddressPublisher{Berlin, Heidelberg}{Springer-Verlag}.
+\newblock
+\begin{APACrefURL} \url{https://doi.org/10.1007/978-3-031-72086-4_55}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1007/978-3-031-72086-4_55} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}

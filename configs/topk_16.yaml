@@ -1,0 +1,40 @@
+# data
+data_root: 'E:/MIMIC-CXR-JPG-224x224/'
+train_pairs_csv: 'E:/MIMIC-CXR-JPG-224x224/mimic_pair_questions_train.csv'
+train_meta_csv: 'E:/MIMIC-CXR-JPG-224x224/mimic_all_train.csv'
+val_pairs_csv: 'E:/MIMIC-CXR-JPG-224x224/mimic_pair_questions_val.csv'
+val_meta_csv: 'E:/MIMIC-CXR-JPG-224x224/mimic_all_val.csv'
+test_pairs_csv: 'E:/MIMIC-CXR-JPG-224x224/mimic_pair_questions_test.csv'
+test_meta_csv: 'E:/MIMIC-CXR-JPG-224x224/mimic_all_test.csv'
+
+# model
+backbone: swin_tiny_patch4_window7_224  # modern backbone
+freeze_backbone: false
+ckpt: 'E:/DELTA/archive/swint_mcc.tar' # points to the weights
+
+text_encoder: clinicalbert
+text_model_name: 'emilyalsentzer/Bio_ClinicalBERT'
+max_ans_len: 192
+
+text_finetune: true
+text_dim: 768
+text_proj_dim: 768
+
+num_workers: 4
+bs: 128  # 
+lr: 5.0e-5 # transformers prefer lower LR
+
+epochs_mrm: 1
+epochs_warmup: 3
+epochs_vqa: 20
+
+topk: 16
+mask_ratio: 0.5
+
+# Loss Weights
+main_loss_weight: 1.0
+lambda_mrm: 0.1
+lambda_cf: 0.1
+lambda_cls: 0.5  # auxiliary classificaton loss weight
+
+seed: 42

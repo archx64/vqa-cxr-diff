@@ -1,0 +1,3 @@
+Question Type: difference
+Question: what has changed compared to the reference image?
+Ground Truth Answer: the main image is missing the findings of pneumothorax, atelectasis, consolidation, and hematoma than the reference image. 

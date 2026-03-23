@@ -1,0 +1,8 @@
+\phantomsection
+\addcontentsline{toc}{chapter}{\bf ABSTRACT}
+
+\begin{center}
+    \large{\bf ABSTRACT}
+\end{center}
+
+Longitudinal image comparison is fundamental to radiological decision-making, requiring clinicians to assess the temporal evolution of findings across visits. Medical Difference Visual Question Answering (Diff-VQA) formalizes this process, however, the current methods for Diff-VQA often rely on direct feature subtraction or simple fusion. These strategies assume inherent spatial correspondence, a premise frequently violated by stochastic acquisition variability and non-rigid anatomical deformations in clinical practice. The author proposes ALIGN-VQA, a novel alignment-guided residual modeling architecture for robust temporal reasoning. Thisg approach introduces three key innovations: (i) Cross-Image Difference Attention (CIDA): Aligns prior-visit features to the current scan via semantic reconstruction, ensuring misalignment-tolerant comparison, (ii) Learnable Residual Gating: Captures precise deviations between aligned historical and current representations to extract evolution-aware features, (iii) Question-Guided Difference Tokenizer (QDT): Selectively pools question-relevant temporal changes for targeted reasoning. Evaluation on the Medical-Diff-VQA benchmark, ALIGN-VQA shows comparable or better performance compared to state-of-the-art methods, with notable improvements in complex reasoning categories. Further, the proposed model ALIGN-VQA is a lightweight architecture making it amenable for edge deployments.

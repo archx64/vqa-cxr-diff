@@ -17,6 +17,7 @@ class DiffVQAModel(nn.Module):
         num_classes=8000,
         max_ans_len=100,
         mask_ratio=0.5,
+        use_cida=True,
         **kwargs
     ):
         super().__init__()
@@ -25,7 +26,8 @@ class DiffVQAModel(nn.Module):
         self.drs = DirectionalResidualStack(
             backbone_name=backbone, 
             freeze_backbone=freeze_backbone,
-            pretrained_weights_path=pretrained_weights_path
+            pretrained_weights_path=pretrained_weights_path,
+            use_cida=use_cida
         )
         C = self.drs.ch # Get channel dim from Swin
         

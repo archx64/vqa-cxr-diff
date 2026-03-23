@@ -1,0 +1,45 @@
+\documentclass{aitthesis}
+\usepackage{amsmath,amssymb}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{booktabs}
+\usepackage{comment}
+
+\bibliographystyle{apacite}
+
+\begin{document}
+
+\pagenumbering{roman}
+\addtocontents{toc}{~\hfill\textbf{Page}\par} %This adds the word Page on top of the table of content
+
+\addcontentsline{toc}{chapter}{\bf TITLE PAGE}
+\include{cover}
+\include{declaration}
+\include{acknowledgements}
+\include{00-abstract}
+\include{contents}
+\include{loft}
+
+\pagestyle{plain}
+\pagenumbering{arabic}
+
+\include{01-introduction}
+\include{02-literature}
+\include{03-methodology}
+\include{04-experiment}
+%\include{05-results}
+%\include{06-discussion}
+%\include{07-conclusion}
+
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{\bf REFERENCES}
+\bibliography{08-references}
+
+\newpage\pagestyle{plain}
+
+\include{appendix}
+\include{vita}
+
+\end{document}

@@ -1,0 +1,9 @@
+\textbf {Tables}\hfill \textbf {Page}\par 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Comparative Analysis of Limitations in State-of-the-Art DiffVQA Models.}}{8}{table.caption.10}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Mapping of Proposed Components to Research Gaps}}{8}{table.caption.11}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Quantitative performance comparison of the proposed model against state-of-the-art methods on the MIMIC-Diff-VQA dataset.}}{22}{table.caption.17}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Ablation studies isolating the impact of the Top-$k$ selection threshold, Cross-Image Difference Attention (CIDA), and Counterfactual (CF) regularizer.}}{22}{table.caption.18}%

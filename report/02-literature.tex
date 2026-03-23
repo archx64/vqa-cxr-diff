@@ -1,0 +1,74 @@
+\setlength{\footskip}{8mm}
+
+\chapter{RELATED WORK}
+This chapter critically examines the existing body of literature to contextualize ALIGN-VQA architecture and the research questions driving this thesis. Longitudinal medical imaging is a cornerstone of radiological diagnosis, requiring clinicians to meticulously track disease progression or stability over time. In response, Difference-aware Medical VQA (Diff-VQA) has emerged as a specialized domain designed to analyze paired longitudinal scans and answer complex clinical queries regarding their differences. However, despite rapid advancements in generative vision-language models, current Diff-VQA architectures remain constrained by several critical methodological bottlenecks.
+
+\section{Difference Modeling and the Alignment Problem in Longitudinal VQA}
+Early approaches to this problem, such as \cite{ekaid}, attempt to structure the comparison by representing anatomical regions as nodes in a multi-relationship graph. By extracting features from identical anatomical bounding boxes across two temporal scans, it aims to evaluate disease progression within specific lung regions. While this explicitly incorporates spatial and semantic medical priors, its reliance on a pre-trained \cite{faster-rcnn} to detect bounding boxes leaves the model vulnerable; inaccurate feature extraction directly results in incorrect comparative predictions. Furthermore, this strict graph structure struggles to adapt to non-rigid anatomical deformations or novel structural changes not predefined in the knowledge graph.
+
+More recent models, such as \cite{real}, compute temporal differences by directly subtracting the reference image from the main image to produce a residual input. This residual is processed through an independent encoder, guided by a consistency loss to enforce focus on disparate regions. However, direct subtraction strategies implicitly assume perfect spatial correspondence between the two scans. In clinical practice, this assumption is frequently violated due to stochastic acquisition variability, patient movement, and postural differences between visits. When raw image subtraction is applied to misaligned scans, it generates overwhelming artifact noise rather than isolating true pathological evolution.
+
+\section{Feature Selection and Computational Efficieny}
+\cite{plural} created addresses longitudinal VQA by concatenating the flattened feature vectors of both the past and current images into a single, massive sequence. Utilizing \cite{resnet101}, it generates 576 tokens per image, resulting in a dense, highly redundant input matrix that is processed by a 6-layer Transformer encoder-decoder. While PLURAL benefits from large-scale pretraining on external datasets like \cite{mimic-cxr} and \cite{MS-COCO}, its brute-force processing of all spatial patches limits its efficiency and scalability.
+
+Similarly, \cite{encoder-decoder} model utilizes a Swin Transformer backbone combined with an Image Differentiation Embedding (IDE) to differentiate the temporal scans. While their model utilizes a lightweight 3-layer decoder, it still fuses and processes the full visual feature maps via cross-attention to generate answers. Other paradigms, such as \cite{regiomix}, attempt to bypass heavy paired-image processing by using Retrieval-Augmented Generation (RAG) to mix-and-match retrieved region features from an external database. While innovative, it requires a continuous, computationally expensive database search for every query and struggles to reason over novel differences not present in the retrieval set.
+
+
+
+\section{Mitigating Hallucination and Dataset Biases through Counterfactual Training}
+A persistent weakness in generative medical vision-language models is their propensity to hallucinate findings or rely on spurious dataset correlations rather than true visual evidence. Generative Diff-VQA models are particularly susceptible to this, as they must predict complex sequences describing evolving pathologies.
+Error analyses of current state-of-the-art models expose the clinical dangers of these hallucinations. For instance, evaluations of \cite{plural} demonstrate instances where the architecture accurately identifies regions of interest but hallucinates the severity sequence, describing an abnormality in reverse temporal order. Similarly, researchers evaluating \cite{encoder-decoder} noted a critical divergence between automated Natural Language Generation (NLG) metrics and clinical correctness.It frequently achieved near-perfect scores on metrics like \cite{bleu} and ROUGE-L, yet clinical review revealed the model was misinterpreting diagnoses—often hallucinating the resolution of anomalies that had not actually subsided, or identifying new anomalies that were not present in the scans. This confirms that standard generative training heavily biases models toward the linguistic distribution of the training reports rather than grounded visual reasoning.
+
+
+\section{Hypothesis and Positioning}
+Existing methods indiscriminately process background and irrelevant features, diluting the model's focus on the actual clinical question. This thesis hypothesizes that longitudinal, difference-focused questions can be accurately answered using only a handful of question-guided difference tokens. By introducing a Question-Guided Difference Tokenizer (QDT) that uses cross-attention to score and select only the Top-K most query-relevant visual residual tokens, the proposed model will explicitly filter out irrelevant changes, drastically reducing the computational load for the downstream language model while preventing the dilution of clinically salient deviations.
+
+The limitations of direct subtraction and rigid graph mapping present a critical gap in modeling the direction and accuracy of temporal changes. This research hypothesizes that a Cross-Image Difference Attention (CIDA) module can overcome these limitations by semantically reconstructing and aligning prior-visit features to the current scan's spatial layout via cross-attention before computing residuals. This alignment-guided approach is expected to provide a highly robust mechanism for distinguishing the true direction of change without being derailed by standard acquisition misalignments.
+
+Standard cross-entropy optimization allows models to memorize language priors, leading to hallucinations on unchanged or subtly different image pairs. This research hypothesizes that counterfactual training, specifically combining hierarchical Kullback-Leibler (KL) divergence with Noise Contrastive Estimation (NCE), will force the model to explicitly disentangle true causal temporal evolution from nuisance visual patterns and dataset biases. By contrasting positive longitudinal pairs against logically opposite or synthetically perturbed counterfactual samples, the model is expected to significantly reduce its false positive hallucination rate on unchanged image pairs.
+
+
+
+
+\section{Comparative Analysis of Methodologies}
+The following table summarizes the key limitations of the current state-of-the-art models.
+
+\begin{table}[h!]
+	\centering
+	\caption{Comparative Analysis of Limitations in State-of-the-Art DiffVQA Models.}
+	\label{tab:sota_limitations}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{lcccc}
+			\hline
+			\textbf{Model/Methodology} & \textbf{\begin{tabular}[c]{@{}c@{}}Computational\\ Inefficiency\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Spatial Misalignment Vulnerability\\ Reasoning\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}High Data\\ Dependency\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Lacks Explicit\\ Robustness Training\end{tabular}} \\ \hline
+			\cite{ekaid} & \checkmark & \checkmark & & \checkmark \\
+			\cite{real} & \checkmark & \checkmark & & \checkmark \\
+			\cite{regiomix} & \checkmark & & \checkmark & \checkmark \\
+			\cite{plural} & \checkmark & \checkmark & \checkmark & \checkmark \\
+			\cite{encoder-decoder} & \checkmark & \checkmark & & \checkmark \\ \hline
+			\textbf{Our Proposed Model} & \textit{Addressed by QDT} & \textit{Addressed by CIDA} & \textit{Addressed by MRM} & \textit{Addressed by Counterfactual Learning} \\ \hline
+		\end{tabular}%
+	}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\caption{Mapping of Proposed Components to Research Gaps}
+	\label{tab:component_mapping_booktabs}
+	\resizebox{\textwidth}{!}{%
+	\begin{tabular}{lll}
+		\toprule
+		\textbf{Proposed Component} & \textbf{Research Gap Addressed} & \textbf{Corresponding Research Question} \\ 
+		\midrule
+		Question-Guided Difference & Computational inefficiency of & RQ1: Can longitudinal questions be answered using \\
+		Tokenizer (QDT) & processing dense visual features. & only a handful of question-guided difference tokens? \\
+		\addlinespace
+		Directional Residual Stack & Vulnerability to spatial misalignments and implicit & RQ2: Does cross-image difference attention help \\
+		(DRS) & assumptions of direct feature substraction & the model distinguish the direction of change? \\
+		\addlinespace
+		Counterfactual Regularizer & vulnerability of generative models  & RQ3: Can counterfactual training reduce \\
+		(CFA-Reg) & to clinical hallucination and dataset biases & the tendency of the model to hallucinate? \\
+		\bottomrule
+	\end{tabular}
+}
+\end{table}

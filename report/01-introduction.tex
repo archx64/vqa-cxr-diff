@@ -1,0 +1,69 @@
+\chapter{INTRODUCTION} 
+
+\section{Background of the Study}
+The automated interpretation of longitudinal radiological images, a cornerstone of clinical practice, has recently been formalized under the task of Difference Visual Question Answering (DiffVQA). The release of \cite{medical-diff-vqa} was a pivotal moment, enabling the development of models to answer nuanced questions about temporal changes in patient scans. The subsequent evolution of state-of-the-art models has revealed a consistent, yet resource-intensive, paradigm.
+
+Initial architectural innovations, such as the graph-based representations in \cite{ekaid} and the dedicated residual encoder in \cite{real}, established methods for processing paired image features. However, these models operate on dense visual feature maps, a computationally expensive approach. Recognizing the need for stronger representations, \cite{plural} demonstrated that extensive pre-training on large-scale natural and medical corpora significantly boosts performance, but at the cost of being highly data-hungry and dependent on external reports. More recently, retrieval-augmented models like \cite{regiomix} and powerful backbones like the Swin Transformer in the \cite{encoder-decoder} have pushed performance further. While these models are highly effective, they represent a "brute-force" methodology: they rely on massive model scale, computationally expensive database searches, or the processing of thousands of visual tokens from the entire image to implicitly learn the difference signal.
+
+\section{Statement of the Problem}
+The dominant paradigm in Difference VQA is fundamentally inefficient and lacks explicit clinical reasoning. Current models are computationally expensive, requiring the processing of dense visual information from two full images, even when the question pertains to a small, localized change. This brute-force approach is not only wasteful but also fails to explicitly model the directionality of clinical findings, making it difficult to distinguish between concepts like "worsened" versus "improved." Furthermore, this reliance on large, complex models without strong logical constraints makes them prone to hallucination—confidently reporting changes that do not exist, a critical failure for any clinical support tool. The field lacks a model that is computationally efficient, explicitly models the direction of change, and is robust against hallucination.
+
+\section{Research Questions}
+Following the problem, There are three research questions:
+\begin{enumerate}
+    \item Can longitudinal, difference-focused questions be accurately answered using only a handful of question-guided difference tokens, instead of processing all image patches?
+    \item Does the cross image difference attention help the model distinguish the direction of change such as missing or new abnormalities?
+    \item Can a counterfactual training signal, such as swapping images or negating terms in the question, reduce the model’s tendency to hallucinate differences?
+\end{enumerate}
+
+\section{Hypotheses}
+There are three hypotheses to answer the research question:
+\begin{enumerate}
+    \item A small set of sparse, question-guided difference tokens is sufficient to achieve state-of-the-art performance, leading to a dramatic increase in computational efficiency.
+    \item Aligning reference image to current image via CIDA yields more accurate representation of disease evolution than direct substraction.
+    \item Training with a counterfactual regularizer will result in a lower false positive rate on unchanged image pairs and improved logical consistency compared to models trained without it.
+\end{enumerate}
+
+\section{Objectives of the Study}
+The main objective is to design and develop lightweight, difference aware medical VQA system that can provide faithful visual evidence to support its answer while being compute efficient and not requiring retrieval databases, radiology reports or expert annotations. The sub-objectives are:
+
+\begin{enumerate}
+    \item To validate the effectiveness of a question-guided tokenizer (QDT) at distilling visual information into a sparse set of tokens.
+    \item To evaluate the impact of an integrated cross image difference attention (CIDA) on the model's ability to reason about the direction of clinical change.
+    \item To measure the reduction in model hallucination achieved by introducing a counterfactual (CF) regularizer.
+\end{enumerate}
+
+\section{Methodology}
+This work introduces ALIGN-VQA, a novel, lightweight architecture that shifts from a brute-force comparison to an alignment-guided residual modeling paradigm. The methodology is centered on three key innovations designed to handle the stochastic acquisition variability and non-rigid anatomical deformations inherent in longitudinal imaging. First, to overcome the limitations of spatial misalignment between scans, cross image difference attention (CIDA) module semantically aligns prior-visit features to the current scan via cross-attention before computing differences. This aligned representation is then passed through a Learnable Residual Gating mechanism, which adaptively suppresses acquisition noise to extract precise, evolution-aware residual features. Second, a Question-Guided Difference Tokenizer (QDT) utilizes domain-aware text embeddings from ClinicalBERT to evaluate the relevance of these visual deviations by applying cross-attention to selectively pool only the Top-K most clinically salient temporal changes. The vision components learn contextual coherence via a self-supervised Masked Residual Modeling (MRM) task, while an auxiliary multi-label classification head explicitly ground the visual features in 14 thoracic pathologies. 
+
+
+\section{Scope}
+In scope:
+\begin{itemize}
+    \item The thesis will exclusively use the public Medical-Diff-VQA dataset, focusing on all question categories for all experiments.
+    \item The core of the work is the design, implementation, and evaluation of our novel, lightweight VQA architecture and its specific modules (CIDA, QDT, CFA-Reg, MRM).
+    \item Evaluation will consist of targeted ablation studies and a direct benchmark against a comprehensive suite of SOTA models (EKAID, ReAl, PLURAL, RegioMix, VED).
+\end{itemize}
+
+Out of scope:
+\begin{itemize}
+	\item This work will not involve the collection of new clinical data or the execution of clinical trials with human radiologists.
+	\item This thesis will not develop a new, general-purpose medical VQA system.
+\end{itemize}
+
+
+\section{Expected Key Findings}
+\begin{itemize}
+	\item The proposed, ALIGN-VQA, model is expected to achieve performance comparable or superior to current state-of-the-art models with a fraction of the computational cost, demonstrating the viability of an efficiency-focused paradigm.
+	
+	\item The integration of Cross-Image Difference Attention (CIDA) and Learnable Residual Gating will be shown to provide a significant accuracy boost by explicitly handling spatial misalignments and suppressing stochastic acquisition noise, particularly excelling in complex comparative reasoning categories.
+	
+	\item The Counterfactual Regularizer will be proven to significantly disentangle true pathological evolution from dataset biases, demonstrating a measurable improvement in model robustness and a reduction in spurious correlations.
+\end{itemize}
+
+\section{Contribution}
+\begin{itemize}
+	\item This thesis introduces ALIGN-VQA, a novel, lightweight paradigm for DiffVQA centered on efficiency, explicit reasoning, and robustness, shifting the field away from the dominant brute-force, resource-intensive methodologies.
+	\item Three key architectural innovations are developed: Cross-Image Difference Attention (CIDA) for misalignment-tolerant semantic reconstruction, Learnable Residual Gating for isolating true evolution-aware features, and a Question-Guided Difference Tokenizer (QDT) that selectively pools clinically salient tokens to prevent signal dilution and maximize computational efficiency.
+	\item A comprehensive multi-stage training strategy that incorporates self-supervised Masked Residual Modeling (MRM), auxiliary disease classification, and counterfactual learning—is introduced. This yields a state-of-the-art framework that is robust, computationally accessible, and self-contained, removing the reliance on massive external radiology report corpora for pre-training.
+\end{itemize}

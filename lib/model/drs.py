@@ -13,9 +13,10 @@ class CrossImageDifferenceAttention(nn.Module):
     the 'evolution' of features. This handles slight misalignment and 
     highlights semantic changes.
     """
-    def __init__(self, dim, num_heads=8, dropout=0.1):
+    def __init__(self, dim, num_heads=8, dropout=0.1, use_cida=True):
         super().__init__()
         self.dim = dim
+        self.use_cida = use_cida
         self.cross_attn = nn.MultiheadAttention(embed_dim=dim, num_heads=num_heads, batch_first=True, dropout=dropout)
         self.layer_norm = nn.LayerNorm(dim)
         
@@ -33,11 +34,17 @@ class CrossImageDifferenceAttention(nn.Module):
         # Flatten: (B, C, H, W) -> (B, H*W, C)
         cur_flat = feat_cur.flatten(2).transpose(1, 2)
         ref_flat = feat_ref.flatten(2).transpose(1, 2)
-        
-        # 1. Cross Attention: Query=Cur, Key=Ref, Val=Ref
-        # "Reconstruct Current Image using patches from Reference Image"
-        # If a patch in Cur is new (disease), it won't find a good match in Ref.
-        aligned_ref, _ = self.cross_attn(query=cur_flat, key=ref_flat, value=ref_flat)
+
+        if self.use_cida:
+            # 1. Cross Attention: Query=Cur, Key=Ref, Val=Ref
+            # "Reconstruct Current Image using patches from Reference Image"
+            # If a patch in Cur is new (disease), it won't find a good match in Ref.
+            aligned_ref, _ = self.cross_attn(query=cur_flat, key=ref_flat, value=ref_flat)
+
+        else:
+            # 1. By pass semantic alignment and assume perfect spatial correspondence
+            aligned_ref = ref_flat
+
         
         # 2. Soft Difference
         # Features that exist in Cur but NOT in Aligned Ref are likely new pathologies
@@ -59,7 +66,7 @@ class CrossImageDifferenceAttention(nn.Module):
         return out, refined_diff
 
 class DirectionalResidualStack(nn.Module):
-    def __init__(self, backbone_name, freeze_backbone=False, pretrained_weights_path=None):
+    def __init__(self, backbone_name, freeze_backbone=False, pretrained_weights_path=None, use_cida=True):
         super().__init__()
         
         # Load Swin Transformer
@@ -81,18 +88,31 @@ class DirectionalResidualStack(nn.Module):
         dummy = torch.randn(1, 3, 224, 224)
         with torch.no_grad():
             feats = self.backbone(dummy)[0]
-            # Swin in timm often outputs (B, H, W, C). We need to check.
-            if feats.shape[1] != feats.shape[3]: # Likely (B, C, H, W) if it's standard features_only
+        #     feats = self.backbone(dummy)[0]
+        #     # Swin in timm often outputs (B, H, W, C). We need to check.
+        #     if feats.shape[1] != feats.shape[3]: # Likely (B, C, H, W) if it's standard features_only
+        #         self.permute_needed = False
+        #         self.ch = feats.shape[1]
+        #     else:
+        #         self.permute_needed = True # (B, H, W, C)
+        #         self.ch = feats.shape[-1]
+
+        # Robust channel detection: The channel dim is almost always larger than H/W
+            if feats.shape[1] > feats.shape[-1]: 
+                # Shape is (B, C, H, W) e.g., (1, 768, 7, 7)
                 self.permute_needed = False
-                self.ch = feats.shape[1]
+                self.ch = feats.shape[1] 
             else:
-                self.permute_needed = True # (B, H, W, C)
+                # Shape is (B, H, W, C) e.g., (1, 7, 7, 768)
+                self.permute_needed = True 
                 self.ch = feats.shape[-1]
+
+
 
         logger.info(f"Backbone Channels: {self.ch}")
 
         # The Novel Difference Module
-        self.cida = CrossImageDifferenceAttention(dim=self.ch)
+        self.cida = CrossImageDifferenceAttention(dim=self.ch, use_cida=use_cida)
 
     def _load_custom_weights(self, path):
         try:
