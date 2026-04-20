@@ -1,10 +1,10 @@
 ~\hfill \textbf {Page}\par 
 \contentsline {chapter}{\bf TITLE PAGE}{i}{Doc-Start}%
-\contentsline {chapter}{\bf AUTHOR'S DECLARATION}{iii}{section*.2}%
-\contentsline {chapter}{\bf ACKNOWLEDGEMENTS}{iv}{section*.3}%
-\contentsline {chapter}{\bf ABSTRACT}{v}{section*.4}%
-\contentsline {chapter}{\bf LIST OF TABLES}{ix}{section*.6}%
-\contentsline {chapter}{\bf LIST OF FIGURES}{x}{section*.8}%
+\contentsline {chapter}{\bf AUTHOR'S DECLARATION}{ii}{section*.2}%
+\contentsline {chapter}{\bf ACKNOWLEDGEMENTS}{iii}{section*.3}%
+\contentsline {chapter}{\bf ABSTRACT}{iv}{section*.4}%
+\contentsline {chapter}{\bf LIST OF TABLES}{viii}{section*.6}%
+\contentsline {chapter}{\bf LIST OF FIGURES}{ix}{section*.8}%
 \contentsline {chapter}{\numberline {1}INTRODUCTION}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Background of the Study}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Statement of the Problem}{1}{section.1.2}%
