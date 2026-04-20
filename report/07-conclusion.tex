@@ -2,4 +2,11 @@
 
 \chapter{CONCLUSION}
 
+The primary objective of this research was to address the inherent vulnerabilities in current Medical Diff-VQA models—specifically their susceptibility to spatial misalignments, their inability to filter out non-pathological acquisition noise, and their lack of targeted reasoning. Through the development of the ALIGN-VQA architecture, we have demonstrated that accurate longitudinal reasoning is not achieved through "more data" or "larger models," but through structural alignment and precise feature selection.
 
+\section{Main Findings}
+The empirical evaluation on the Medical-Diff-VQA benchmark yielded several critical insights. Most notably, ALIGN-VQA achieved a state-of-the-art performance, outperforming existing models and demonstrating a superior ability to preserve the chronological clinical narrative. The ablation studies provided mathematical proof of the hypotheses. The model reached its peak performance when all three modules worked in concert, highlighting the necessity of the Align $\rightarrow$ Filter $\rightarrow$ Focus pipeline. Furthermore, the qualitative heatmaps confirmed that the model’s reasoning is explicitly grounded in the visual evidence of the scans, moving the model away from the "black box" nature of conventional generative AI.
+
+\section{Final Reflection}
+The path toward truly trustworthy medical AI requires models that do not just detect changes but understand the context of change over time. While the current iteration of ALIGN-VQA is limited to 2D projections and pairs of images, it provides a rigorous blueprint for the next generation of longitudinal diagnostic tools.
+Ultimately, this work serves as a reminder that in the high-stakes domain of radiology, precision is a product of focus. By filtering out the noise of the healthy body, the model can see the features of the disease to speak more clearly. As moving toward a future where AI serves as a reliable co-pilot for clinicians, architectures like ALIGN-VQA will be fundamental in ensuring that these systems are not just fast, but clinically grounded, structurally accurate, and fundamentally robust.

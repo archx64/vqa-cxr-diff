@@ -688,4 +688,39 @@ Yung%
 \begin{APACrefDOI} \doi{10.1007/978-3-031-72086-4_55} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
 
+\bibitem [\protect \citeauthoryear {%
+Zhang*%
+, Kishore*%
+, Wu*%
+, Weinberger%
+\BCBL {}\ \BBA {} Artzi%
+}{%
+Zhang*%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2020}}%
+}]{%
+bert-score}
+\APACinsertmetastar {%
+bert-score}%
+\begin{APACrefauthors}%
+Zhang*, T.%
+, Kishore*, V.%
+, Wu*, F.%
+, Weinberger, K\BPBI Q.%
+\BCBL {}\ \BBA {} Artzi, Y.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {BERTScore: Evaluating Text Generation with BERT}
+  {Bertscore: Evaluating text generation with bert}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {International Conference on Learning Representations.}
+  {International conference on learning representations.}
+\newblock
+\begin{APACrefURL} \url{https://openreview.net/forum?id=SkeHuCVFDr}
+  \end{APACrefURL}
+\PrintBackRefs{\CurrentBib}
+
 \end{thebibliography}

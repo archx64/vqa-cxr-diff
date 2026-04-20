@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.8.15)  21 MAR 2026 01:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.8.15)  20 APR 2026 14:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -454,7 +454,8 @@ File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
 ) (thesis.aux
 (cover.aux) (declaration.aux) (acknowledgements.aux) (00-abstract.aux)
 (contents.aux) (loft.aux) (01-introduction.aux) (02-literature.aux)
-(03-methodology.aux) (04-experiment.aux) (appendix.aux) (vita.aux))
+(03-methodology.aux) (04-experiment.aux) (05-results.aux) (06-discussion.aux)
+(07-conclusion.aux) (appendix.aux) (vita.aux))
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
@@ -579,7 +580,7 @@ les/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}])
 \openout2 = `declaration.aux'.
 
  (declaration.tex
-<figures/signature.png, id=230, 1599.9775pt x 1445.4pt>
+<figures/signature.png, id=306, 1599.9775pt x 1445.4pt>
 File: figures/signature.png Graphic file (type png)
 <use figures/signature.png>
 Package pdftex.def Info: figures/signature.png  used on input line 17.
@@ -618,19 +619,27 @@ ion-relevant tem-po-ral changes
 \openout2 = `contents.aux'.
 
  (contents.tex (thesis.toc
+Overfull \hbox (1.30112pt too wide) in paragraph at lines 21--21
+ [][] [][]\T1/qtm/m/n/12 Filtering Non-Pathological Noise via Learn-able Resid-
+ual Gat- 
+ []
+
+
 
 [6
 
 
 
 
-])
+]
+
+[7])
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
 )
 
-[7]
+[8]
 \openout2 = `loft.aux'.
 
  (loft.tex (thesis.lot
@@ -645,7 +654,7 @@ he-Art Dif-fVQA Mod-
 
 
 
-[8
+[9
 
 
 
@@ -656,7 +665,7 @@ he-Art Dif-fVQA Mod-
 
 )
 
-[9
+[10
 
 ]
 \openout2 = `01-introduction.aux'.
@@ -671,6 +680,12 @@ CHAPTER 1.
 
 
 ]
+Overfull \hbox (6.51913pt too wide) in paragraph at lines 37--38
+\T1/qtm/m/n/12 attention be-fore com-put-ing dif-fer-ences. This aligned rep-re
+-sen-ta-tion is then passed through
+ []
+
+
 
 [2]
 LaTeX Font Info:    Trying to load font information for TS1+qtm on input line 4
@@ -680,9 +695,21 @@ File: ts1qtm.fd 2009/09/25 v1.2 font definition file for TS1/qtm
 )
 
 [3{C:/Program Files/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
-Overfull \hbox (1.08882pt too wide) in paragraph at lines 59--60
-[]\T1/qtm/m/n/12 The in-te-gra-tion of Cross-Image Dif-fer-ence At-ten-tion (CI
-DA) and Learn-able Resid-
+Overfull \hbox (4.216pt too wide) in paragraph at lines 67--68
+[]\T1/qtm/m/n/12 Three key ar-chi-tec-tural in-no-va-tions are de-vel-oped, CID
+A mod-ule for misalignment-
+ []
+
+
+Overfull \hbox (16.14499pt too wide) in paragraph at lines 67--68
+\T1/qtm/m/n/12 tolerant se-man-tic re-con-struc-tion, learn-able resid-ual gat-
+ing for iso-lat-ing true evolution-
+ []
+
+
+Overfull \hbox (2.129pt too wide) in paragraph at lines 68--69
+\T1/qtm/m/n/12 MRM, aux-il-iary dis-ease clas-si-fi-ca-tion, and coun-ter-fac-t
+ual learn-ing^^Vis in-tro-duced.
  []
 
 )
@@ -709,21 +736,14 @@ if-fer-en-ti-ate the tem-po-ral scans.
 
 [6]
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-)
-
-[7]
+[7])
 
 [8]
 \openout2 = `03-methodology.aux'.
 
  (03-methodology.tex
 CHAPTER 3.
-<figures/high_architecture.png, id=448, 2890.8pt x 1626.075pt>
+<figures/high_architecture.png, id=553, 2890.8pt x 1626.075pt>
 File: figures/high_architecture.png Graphic file (type png)
 <use figures/high_architecture.png>
 Package pdftex.def Info: figures/high_architecture.png  used on input line 12.
@@ -740,7 +760,7 @@ Package pdftex.def Info: figures/high_architecture.png  used on input line 12.
 [10]
 
 [11]
-<figures/mrm.png, id=486, 693.59125pt x 459.7175pt>
+<figures/mrm.png, id=591, 693.59125pt x 459.7175pt>
 File: figures/mrm.png Graphic file (type png)
 <use figures/mrm.png>
 Package pdftex.def Info: figures/mrm.png  used on input line 85.
@@ -764,7 +784,7 @@ CHAPTER 4.
 
 
 ]
-<figures/medical_findings.png, id=519, 859.2903pt x 570.933pt>
+<figures/medical_findings.png, id=625, 859.2903pt x 570.933pt>
 File: figures/medical_findings.png Graphic file (type png)
 <use figures/medical_findings.png>
 Package pdftex.def Info: figures/medical_findings.png  used on input line 18.
@@ -772,12 +792,12 @@ Package pdftex.def Info: figures/medical_findings.png  used on input line 18.
 
 
 [16 <./figures/medical_findings.png>]
-<figures/question_types.png, id=527, 714.7503pt x 426.393pt>
+<figures/question_types.png, id=633, 714.7503pt x 426.393pt>
 File: figures/question_types.png Graphic file (type png)
 <use figures/question_types.png>
 Package pdftex.def Info: figures/question_types.png  used on input line 28.
 (pdftex.def)             Requested size: 375.14705pt x 223.80762pt.
-<figures/question_lengths.png, id=529, 859.2903pt x 426.393pt>
+<figures/question_lengths.png, id=635, 859.2903pt x 426.393pt>
 File: figures/question_lengths.png Graphic file (type png)
 <use figures/question_lengths.png>
 Package pdftex.def Info: figures/question_lengths.png  used on input line 38.
@@ -788,19 +808,67 @@ Package pdftex.def Info: figures/question_lengths.png  used on input line 38.
 
 [18 <./figures/question_lengths.png>]
 
-[19]
+[19] Excluding 'comment' comment.)
 
 [20]
-Overfull \hbox (18.88129pt too wide) in paragraph at lines 73--74
-[]\T1/qtm/m/n/12 The base-line con-fig-u-ra-tion with-out CIDA and CF-Reg per-f
-orms poorly, yield-ing []Oliveira dos
+\openout2 = `05-results.aux'.
+
+ (05-results.tex
+CHAPTER 5.
+
+Overfull \hbox (0.6111pt too wide) in paragraph at lines 5--6
+\T1/qtm/m/n/12 It is es-sen-tial to es-tab-lish the an-a-lyt-i-cal frame-work u
+sed to eval-u-ate the pro-posed ALIGN-
  []
 
+
+
+[21
+
+
+
+
+]
+
+[22]
+
+[23]
+
+[24] Excluding 'comment' comment.)
+
+[25]
+\openout2 = `06-discussion.aux'.
+
+ (06-discussion.tex
+CHAPTER 6.
+
+
+[26
+
+
+
+
+]
+
+[27]
+
+[28]
+
+[29] Excluding 'comment' comment.)
+
+[30]
+\openout2 = `07-conclusion.aux'.
+
+ (07-conclusion.tex
+CHAPTER 7.
 )
 
-[21]
+[31
 
-[22] (thesis.bbl
+
+
+
+] (thesis.bbl
 Underfull \hbox (badness 2229) in paragraph at lines 129--145
 \T1/qtm/m/it/12 ni-tion.  \T1/qtm/m/n/12 Re-trieved from []$\T1/cmtt/m/n/12 htt
 ps :// www [] .cv [] -foundation [] .org / openaccess /
@@ -814,26 +882,26 @@ al [] []Learning [] []CVPR [] []2016 []
 
 
 
-[23
+[32
 
 
 {C:/Program Files/MiKTeX/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
 
-[24])
+[33])
 
-[25]
+[34]
 \openout2 = `appendix.aux'.
 
  (appendix.tex
 
-[26
+[35
 
 ] Excluding 'comment' comment.)
 \openout2 = `vita.aux'.
 
  (vita.tex)
 
-[27
+[36
 
 
 
@@ -848,23 +916,23 @@ See the caption package documentation for explanation.
 
 (thesis.aux (cover.aux) (declaration.aux) (acknowledgements.aux)
 (00-abstract.aux) (contents.aux) (loft.aux) (01-introduction.aux)
-(02-literature.aux) (03-methodology.aux) (04-experiment.aux) (appendix.aux)
-(vita.aux))
+(02-literature.aux) (03-methodology.aux) (04-experiment.aux) (05-results.aux)
+(06-discussion.aux) (07-conclusion.aux) (appendix.aux) (vita.aux))
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-07-20>
  ***********
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: F411624FF35A2E020F4E19CCC5080B05;9381.
+(rerunfilecheck)             Checksum: 388BF444A947C0A7FA752A504DF1FEA1;12600.
  ) 
 Here is how much of TeX's memory you used:
- 14577 strings out of 468133
- 228851 string characters out of 5440786
- 648213 words of memory out of 5000000
- 42778 multiletter control sequences out of 15000+600000
+ 14707 strings out of 468133
+ 231974 string characters out of 5440786
+ 661029 words of memory out of 5000000
+ 42856 multiletter control sequences out of 15000+600000
  659778 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,16n,93p,1493b,607s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,16n,93p,1683b,607s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Progra
 m Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKT
 eX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type
@@ -877,9 +945,9 @@ eX/fonts/type1/public/tex-gyre/qtmb.pfb><C:/Program Files/MiKTeX/fonts/type1/pu
 blic/tex-gyre/qtmbi.pfb><C:/Program Files/MiKTeX/fonts/type1/public/tex-gyre/qt
 mr.pfb><C:/Program Files/MiKTeX/fonts/type1/public/tex-gyre/qtmri.pfb><C:/Progr
 am Files/MiKTeX/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on thesis.pdf (36 pages, 1576961 bytes).
+Output written on thesis.pdf (46 pages, 1617675 bytes).
 PDF statistics:
- 767 PDF objects out of 1000 (max. 8388607)
- 138 named destinations out of 1000 (max. 500000)
- 463 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 932 PDF objects out of 1000 (max. 8388607)
+ 169 named destinations out of 1000 (max. 500000)
+ 615 words of extra memory for PDF output out of 10000 (max. 10000000)
 

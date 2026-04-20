@@ -47,4 +47,4 @@ def create_finetune_split(input_csv, output_csv, target_ratio=0.70):
     print(f"Saved split to {output_csv}")
 
 if __name__ == "__main__":
-    create_finetune_split("data/train_pairs.csv", "data/train_pairs_finetune.csv")
+    create_finetune_split("E:/MIMIC-CXR-JPG-224x224/mimic_pair_questions_train.csv", "E:/MIMIC-CXR-JPG-224x224/mimic_pair_questions_finetune.csv")

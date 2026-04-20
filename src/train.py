@@ -125,11 +125,11 @@ def run_epoch(
     optimizer,
     scaler,
     device,
-    main_loss_weight=1.0,
+    lambda_gate=0.01,
     lambda_mrm=0.1,
     lambda_cls=0.5,
     lambda_cf=0.1,
-    lambda_gate=0.01,
+    main_loss_weight=1.0,
 ):
     model.train()
     running_loss = 0.0
@@ -297,7 +297,7 @@ def main(args):
     if not logger.hasHandlers():
         logger = setup_logging("logs/train.log")
 
-    model_name = f"SWIN_{args.topk}_cls-{args.lambda_cls}_cf-{args.lambda_cf}_usecida-{args.use_cida}"
+    model_name = f"SWIN_{args.topk}_cls-{args.lambda_cls}_gate-{args.lambda_gate}_cf-{args.lambda_cf}_usecida-{args.use_cida}"
     try:
         run = neptune.init_run(
             project=NEPTUNE_PROJECT, name=model_name, api_token=NEPTUNE_API_TOKEN
@@ -383,6 +383,7 @@ def main(args):
             lambda_mrm=args.lambda_mrm,
             lambda_cls=0.0,
             lambda_cf=0.0,
+            lambda_gate=args.lambda_gate,
         )
 
     for ep in range(int(args.epochs_warmup)):
@@ -397,6 +398,7 @@ def main(args):
             lambda_mrm=args.lambda_mrm,
             lambda_cls=args.lambda_cls,
             lambda_cf=0.0,
+            lambda_gate=args.lambda_gate,
         )
 
     scheduler = CosineAnnealingLR(opt, T_max=int(args.epochs_vqa), eta_min=1e-8)
@@ -415,6 +417,7 @@ def main(args):
             lambda_mrm=0.0,
             lambda_cls=args.lambda_cls,
             lambda_cf=args.lambda_cf,
+            lambda_gate=args.lambda_gate,
         )
 
         scheduler.step()

@@ -19,7 +19,7 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Loading ALIGN-VQA on {DEVICE}...")
 
 CONFIG_PATH = "configs/topk_16.yaml"
-MODEL_PATH = "models/finetuned_last.pth"
+MODEL_PATH = "models/SWIN_36_cls-0.5_cf-0_usecida-True_best.pth"
 
 with open(CONFIG_PATH, "r") as f:
     cfg = yaml.safe_load(f)

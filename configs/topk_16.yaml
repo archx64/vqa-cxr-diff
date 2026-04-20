@@ -1,6 +1,6 @@
 # data
 data_root: 'E:/MIMIC-CXR-JPG-224x224/'
-train_pairs_csv: 'E:/MIMIC-CXR-JPG-224x224/mimic_pair_questions_train.csv'
+train_pairs_csv: 'E:/MIMIC-CXR-JPG-224x224/mimic_pair_questions_finetune.csv'
 train_meta_csv: 'E:/MIMIC-CXR-JPG-224x224/mimic_all_train.csv'
 val_pairs_csv: 'E:/MIMIC-CXR-JPG-224x224/mimic_pair_questions_val.csv'
 val_meta_csv: 'E:/MIMIC-CXR-JPG-224x224/mimic_all_val.csv'

@@ -3,8 +3,8 @@
 \contentsline {chapter}{\bf AUTHOR'S DECLARATION}{iii}{section*.2}%
 \contentsline {chapter}{\bf ACKNOWLEDGEMENTS}{iv}{section*.3}%
 \contentsline {chapter}{\bf ABSTRACT}{v}{section*.4}%
-\contentsline {chapter}{\bf LIST OF TABLES}{viii}{section*.6}%
-\contentsline {chapter}{\bf LIST OF FIGURES}{ix}{section*.8}%
+\contentsline {chapter}{\bf LIST OF TABLES}{ix}{section*.6}%
+\contentsline {chapter}{\bf LIST OF FIGURES}{x}{section*.8}%
 \contentsline {chapter}{\numberline {1}INTRODUCTION}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Background of the Study}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Statement of the Problem}{1}{section.1.2}%
@@ -13,14 +13,14 @@
 \contentsline {section}{\numberline {1.5}Objectives of the Study}{2}{section.1.5}%
 \contentsline {section}{\numberline {1.6}Methodology}{3}{section.1.6}%
 \contentsline {section}{\numberline {1.7}Scope}{3}{section.1.7}%
-\contentsline {section}{\numberline {1.8}Expected Key Findings}{4}{section.1.8}%
+\contentsline {section}{\numberline {1.8}Expected Key Findings}{3}{section.1.8}%
 \contentsline {section}{\numberline {1.9}Contribution}{4}{section.1.9}%
 \contentsline {chapter}{\numberline {2}RELATED WORK}{5}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Difference Modeling and the Alignment Problem in Longitudinal VQA}{5}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Feature Selection and Computational Efficieny}{6}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Mitigating Hallucination and Dataset Biases through Counterfactual Training}{6}{section.2.3}%
+\contentsline {section}{\numberline {2.3}Filtering Non-Pathological Noise via Learnable Residual Gating}{6}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Hypothesis and Positioning}{7}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Comparative Analysis of Methodologies}{7}{section.2.5}%
+\contentsline {section}{\numberline {2.5}Comparative Analysis of Methodologies}{8}{section.2.5}%
 \contentsline {chapter}{\numberline {3}METHODOLOGY}{9}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Architectureal Overview}{9}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Problem Formulation}{10}{section.3.2}%
@@ -35,7 +35,7 @@
 \contentsline {subsection}{\numberline {3.3.8}Masked Residual Modeling}{12}{subsection.3.3.8}%
 \contentsline {section}{\numberline {3.4}Multi-Stage Training Strategy}{12}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Implementation Details}{14}{section.3.5}%
-\contentsline {chapter}{\numberline {4}EXPERIMENTAL RESULTS}{15}{chapter.4}%
+\contentsline {chapter}{\numberline {4}EXPERIMENTS}{15}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Rationale}{15}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Dataset}{15}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}Pathological Distribution}{16}{subsection.4.2.1}%
@@ -46,10 +46,29 @@
 \contentsline {subsection}{\numberline {4.3.2}Models and Techniques}{18}{subsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.3.3}Training Procedure}{19}{subsection.4.3.3}%
 \contentsline {subsection}{\numberline {4.3.4}Evaluation Metrics}{20}{subsection.4.3.4}%
-\contentsline {section}{\numberline {4.4}Quantitative Results on the MIMIC-Diff-VQA Benchmark}{20}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Ablation Studies and Component Analysis}{21}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Impact of Architectural Modules}{21}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Impact of Token Sparsity}{21}{subsection.4.5.2}%
-\contentsline {chapter}{\bf REFERENCES}{23}{section*.19}%
-\contentsline {chapter}{\bf APPENDICES}{26}{section*.20}%
-\contentsline {chapter}{\bf VITA}{27}{section*.21}%
+\contentsline {chapter}{\numberline {5}RESULTS}{21}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Results Corresponding to CIDA}{21}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Results Corresponding to GATE}{23}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Results Corresponding to QDT}{24}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Further Analysis}{24}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Comparison with State of the Art Models}{24}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Analyzing Distribution Across Question Types}{25}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}Human Evaluation and Error Analysis}{25}{subsection.5.4.3}%
+\contentsline {chapter}{\numberline {6}DISCUSSION}{26}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Revisiting Research Questions}{26}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Cross Image Difference Attention}{26}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Learnable Residual Gating}{27}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Question Guided Tokens and Targeted Reasoning}{27}{subsection.6.1.3}%
+\contentsline {section}{\numberline {6.2}Comparing with Past Work}{27}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Experimental Decisions}{28}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Architectural Sequencing}{28}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}The Selection of NLG Metrics for Clinical Evaluation}{28}{subsection.6.3.2}%
+\contentsline {section}{\numberline {6.4}Limitation and Future Work}{29}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Limitation}{29}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Future Work}{30}{subsection.6.4.2}%
+\contentsline {chapter}{\numberline {7}CONCLUSION}{31}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Main Findings}{31}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Final Reflection}{31}{section.7.2}%
+\contentsline {chapter}{\bf REFERENCES}{32}{section*.20}%
+\contentsline {chapter}{\bf APPENDICES}{35}{section*.21}%
+\contentsline {chapter}{\bf VITA}{36}{section*.22}%

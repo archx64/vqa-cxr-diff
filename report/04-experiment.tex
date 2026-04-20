@@ -1,17 +1,17 @@
 \setlength{\footskip}{8mm}
 
-\chapter{EXPERIMENTAL RESULTS}
+\chapter{EXPERIMENTS}
 
 
 \section{Rationale}
-The primary objective of these experiments is to rigorously evaluate the clinical viability, computational efficiency, and reasoning accuracy of the proposed ALIGN-VQA architecture. Traditional Medical Visual Question Answering (Med-VQA) models often falter when applied to longitudinal tasks because they are vulnerable to spatial misalignments and tend to hallucinate clinical findings based on language priors. Therefore, the experimental design is motivated by three key goals. First, the author argues that spatial misalignments between historical and current scans are a major source of noise, and thus a Cross-Image Difference Attention (CIDA) module is necessary to establish a reliable baseline for comparison. Second, the author hypothesizes that since the vast majority of pixels in a longitudinal chest X-ray remain unchanged, selecting a sparse set of highly relevant tokens via Question Guided Difference Tokenizer (QDT) module will reduce the model's tendency to hallucinate changes in stable anatomical regions. Finally, the author focuses on causal grounding through the use of counterfactual regularization (CFA-Reg). The author expects that by forcing the model to distinguish between true pathological evolution and dataset biases, penalizing it when it fails to flip its reasoning for a reversed image pair, the model will achieve more robust and hallucination-free clinical reporting.
+The primary objective of these experiments is to rigorously evaluate the clinical viability, computational efficiency, and reasoning accuracy of the proposed ALIGN-VQA architecture. Traditional Medical Visual Question Answering (Med-VQA) models often falter when applied to longitudinal tasks because they are vulnerable to spatial misalignments and struggle to isolate true disease progression from harmless acquisition noise. Therefore, the experimental design is motivated by three key goals. First, the author argues that spatial misalignments and stochastic acquisition variability between historical and current scans compromise direct feature comparison. Thus, the Cross-Image Difference Attention (CIDA) module is evaluated on its ability to semantically reconstruct and align the prior-visit features to establish a reliable, misalignment-tolerant baseline. Second, rather than assuming all raw pixel-wise differences are clinically relevant, the author hypothesizes that a Learnable Residual Gating mechanism is required to actively filter out non-pathological visual noise and static anatomy, ensuring that only precise, evolution-aware features are extracted. Finally, because the vast majority of regions in a longitudinal chest X-ray remain unchanged, the author evaluates the Question-Guided Difference Tokenizer (QDT) to determine if selectively pooling a sparse subset of highly relevant tokens enables the model to perform targeted diagnostic reasoning while maintaining a highly efficient, lightweight architecture.
 
 
 \section{Dataset}
 To test these hypotheses, the author utilizes \cite{medical-diff-vqa}, which is a specialized derivative of the large-scale \cite{mimic-cxr}. Each sample in this dataset is structured as a longitudinal pair consisting of a historical reference radiograph and a more recent follow-up scan, stored in Digital Imaging and Communications in Medicine (DICOM) format. The x-rays images in Joint Photographic Experts Group (JPEG) format are fetched from \cite{mimic-cxr-jpg} for faster preprocessing and training. These pairs are accompanied by clinically grounded questions that specifically target temporal changes, such as the progression of pleural effusion or the placement of medical devices. The dataset comprises 164,324 pairs of main and reference chest X-ray images, yielding a total of 700,703 question-answer pairs. This high volume of data allows the model to learn the subtle semantic nuances required to distinguish between common clinical conditions like consolidation, edema, and atelectasis within a comparative context. Following standard benchmarking protocols, the dataset is strictly partitioned into training, validation, and testing sets using an 8:1:1 ratio. The Figure shows the distribution of seven distinct clinical categories
 
 \subsection{Pathological Distribution}
-Figure \ref{fig:medical_findings} illustrates the prevalence of medical findings across the dataset. The distribution exhibits a heavy long-tail characteristic typical of medical datasets. "No Finding" and "Support Devices" are the most prevalent positive labels, reflecting the high frequency of routine exams and ICU patient monitoring in \cite{mimic-cxr}. Among true pathological findings, "Pleural Effusion," "Lung Opacity," and "Atelectasis" occur most frequently. Conversely, critical but less frequent findings like "Fracture" and "Pleural Other" appear significantly less often. This class imbalance highlights the necessity for robust representation learning, particularly the Counterfactual Regularizer in the ALIGN-VQA architecture, to prevent the model from defaulting to high-frequency predictions.
+Figure \ref{fig:medical_findings} illustrates the prevalence of medical findings across the dataset. The distribution exhibits a heavy long-tail characteristic typical of medical datasets. "No Finding" and "Support Devices" are the most prevalent positive labels, reflecting the high frequency of routine exams and Intensive Care Unit (ICU) patient monitoring in \cite{mimic-cxr}. Among true pathological findings, "Pleural Effusion," "Lung Opacity," and "Atelectasis" occur most frequently. Conversely, critical but less frequent findings like "Fracture" and "Pleural Other" appear significantly less often. This class imbalance highlights the necessity for robust representation learning, particularly the Counterfactual Regularizer in the ALIGN-VQA architecture, to prevent the model from defaulting to high-frequency predictions.
 
 \begin{figure}[htbp]
 	\centering
@@ -59,7 +59,7 @@ The training process strictly adhered to a multi-stage strategy designed to incr
 \subsection{Evaluation Metrics}
 Because automated metrics often struggle to capture the clinical nuance of medical texts, the evaluation strategy utilizes a robust mix of strict string-matching, semantic similarity, and human validation. For automated assessment, the author reports standard Natural Language Generation (NLG) metrics, including \cite{bleu}, \cite{meteor}, and \cite{rouge}, to evaluate sequence overlap and structural fluency. The author places a heavy priority on the \cite{cider} metric, as its weighting mechanism explicitly penalizes generic answers and rewards the accurate generation of rare, clinically vital keywords, such as specific pathology names.
 
-To move beyond the limitations of strict Exact Match (EM) criteria, a comprehensive manual qualitative evaluation of 1,384 test samples was also conducted. In this assessment, predictions were categorized by medical professionals as Fully Correct, Partially Correct or Incorrect. This manual review specifically focused on identifying any dangerous localization failures or clinical hallucinations, ensuring that the model's outputs are not only linguistically fluent but also clinically safe and grounded in the visual evidence.
+\begin{comment}
 
 \section{Quantitative Results on the MIMIC-Diff-VQA Benchmark}
 Table 5.1 presents the quantitative performance of the proposed ALIGN-VQA against current state-of-the-art models on the \cite{medical-diff-vqa}. The evaluated baselines include early graph-based methods, retrieval-augmented models, dense-feature frameworks, and residual-based generative models.
@@ -78,7 +78,7 @@ The author also investigated the effect of the token selection threshold, $k$, w
 \begin{table}[htbp]
 	\centering
 	\caption{Quantitative performance comparison of the proposed model against state-of-the-art methods on the MIMIC-Diff-VQA dataset.}
-	\label{tab:main_results}
+	\label{tab:main_results_old}
 	\renewcommand{\arraystretch}{1.2}
 	% Resizebox scales the table to perfectly fit the text width
 	\resizebox{\textwidth}{!}{%
@@ -102,7 +102,7 @@ The author also investigated the effect of the token selection threshold, $k$, w
 \begin{table}[htbp]
 	\centering
 	\caption{Ablation studies isolating the impact of the Top-$k$ selection threshold, Cross-Image Difference Attention (CIDA), and Counterfactual (CF) regularizer.}
-	\label{tab:ablation}
+	\label{tab:ablation_old}
 	\renewcommand{\arraystretch}{1.2}
 	% Resizebox scales the table to perfectly fit the text width
 	\resizebox{\textwidth}{!}{%
@@ -121,3 +121,5 @@ The author also investigated the effect of the token selection threshold, $k$, w
 		\end{tabular}%
 	}
 \end{table}
+
+\end{comment}

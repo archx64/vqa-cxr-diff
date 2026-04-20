@@ -15,9 +15,8 @@ Similarly, \cite{encoder-decoder} model utilizes a Swin Transformer backbone com
 
 
 
-\section{Mitigating Hallucination and Dataset Biases through Counterfactual Training}
-A persistent weakness in generative medical vision-language models is their propensity to hallucinate findings or rely on spurious dataset correlations rather than true visual evidence. Generative Diff-VQA models are particularly susceptible to this, as they must predict complex sequences describing evolving pathologies.
-Error analyses of current state-of-the-art models expose the clinical dangers of these hallucinations. For instance, evaluations of \cite{plural} demonstrate instances where the architecture accurately identifies regions of interest but hallucinates the severity sequence, describing an abnormality in reverse temporal order. Similarly, researchers evaluating \cite{encoder-decoder} noted a critical divergence between automated Natural Language Generation (NLG) metrics and clinical correctness.It frequently achieved near-perfect scores on metrics like \cite{bleu} and ROUGE-L, yet clinical review revealed the model was misinterpreting diagnoses—often hallucinating the resolution of anomalies that had not actually subsided, or identifying new anomalies that were not present in the scans. This confirms that standard generative training heavily biases models toward the linguistic distribution of the training reports rather than grounded visual reasoning.
+\section{Filtering Non-Pathological Noise via Learnable Residual Gating}
+A persistent weakness in longitudinal medical vision-language models is their inability to distinguish true pathological evolution from stochastic acquisition noise. Generative Diff-VQA models are particularly susceptible to this, as they must predict complex, temporally evolving sequences based on the differences between two scans. When models rely on raw feature subtraction or simple fusion, they treat all visual differences such as changes in patient posture, inspiration effort, or scanner contrast as equally important as actual disease progression. Error analyses of current state-of-the-art models expose the clinical dangers of processing un-gated residual features. For instance, evaluations of \cite{plural} demonstrate instances where the architecture accurately identifies regions of interest but misinterprets the severity sequence, describing an abnormality in reverse temporal order. This occurs because the raw subtracted features are overwhelmed by static anatomical misalignment, confusing the decoder. Similarly, researchers evaluating \cite{encoder-decoder} noted a critical divergence between automated Natural Language Generation (NLG) metrics and clinical correctness. Models frequently achieved near-perfect scores on metrics like \cite{bleu} and \cite{rouge}, yet clinical review revealed the model was misinterpreting diagnoses, often incorrectly identifying the resolution of anomalies or falsely flagging new abnormalities. This confirms that without an explicit mechanism to filter out non-pathological visual noise, generative models struggle to isolate and describe true clinical evolution.
 
 
 \section{Hypothesis and Positioning}
@@ -25,7 +24,7 @@ Existing methods indiscriminately process background and irrelevant features, di
 
 The limitations of direct subtraction and rigid graph mapping present a critical gap in modeling the direction and accuracy of temporal changes. This research hypothesizes that a Cross-Image Difference Attention (CIDA) module can overcome these limitations by semantically reconstructing and aligning prior-visit features to the current scan's spatial layout via cross-attention before computing residuals. This alignment-guided approach is expected to provide a highly robust mechanism for distinguishing the true direction of change without being derailed by standard acquisition misalignments.
 
-Standard cross-entropy optimization allows models to memorize language priors, leading to hallucinations on unchanged or subtly different image pairs. This research hypothesizes that counterfactual training, specifically combining hierarchical Kullback-Leibler (KL) divergence with Noise Contrastive Estimation (NCE), will force the model to explicitly disentangle true causal temporal evolution from nuisance visual patterns and dataset biases. By contrasting positive longitudinal pairs against logically opposite or synthetically perturbed counterfactual samples, the model is expected to significantly reduce its false positive hallucination rate on unchanged image pairs.
+Previous state-of-the-art models in Diff-VQA rely on direct feature subtraction or simple concatenation, operating under the flawed assumption that all pixel-wise differences between two scans are clinically relevant. The architecture of ALIGN-VQA challenges this assumption. By introducing a Learnable Residual Gate, ALIGN-VQA explicitly bridges the gap between raw visual differences and the clinical narrative. Instead of forcing the language decoder to make sense of noisy, un-filtered subtraction maps, our gating mechanism dynamically learns to suppress static anatomy and acquisition artifacts, ensuring that only true, evolution-aware features are passed forward for diagnostic reasoning.
 
 
 
@@ -40,7 +39,7 @@ The following table summarizes the key limitations of the current state-of-the-a
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{lcccc}
 			\hline
-			\textbf{Model/Methodology} & \textbf{\begin{tabular}[c]{@{}c@{}}Computational\\ Inefficiency\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Spatial Misalignment Vulnerability\\ Reasoning\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}High Data\\ Dependency\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Lacks Explicit\\ Robustness Training\end{tabular}} \\ \hline
+			\textbf{Model/Methodology} & \textbf{\begin{tabular}[c]{@{}c@{}}Computational\\ Inefficiency\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Spatial Misalignment Vulnerability\\ Reasoning\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}High Data\\ Dependency\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Susceptibility to\\ Non-Pathological Noise\end{tabular}} \\ \hline
 			\cite{ekaid} & \checkmark & \checkmark & & \checkmark \\
 			\cite{real} & \checkmark & \checkmark & & \checkmark \\
 			\cite{regiomix} & \checkmark & & \checkmark & \checkmark \\
@@ -66,8 +65,8 @@ The following table summarizes the key limitations of the current state-of-the-a
 		Directional Residual Stack & Vulnerability to spatial misalignments and implicit & RQ2: Does cross-image difference attention help \\
 		(DRS) & assumptions of direct feature substraction & the model distinguish the direction of change? \\
 		\addlinespace
-		Counterfactual Regularizer & vulnerability of generative models  & RQ3: Can counterfactual training reduce \\
-		(CFA-Reg) & to clinical hallucination and dataset biases & the tendency of the model to hallucinate? \\
+		Learnable Residual & Susceptibility of generative models to non-pathological visual  & RQ3: How does a learnable residual gating mechanism impact \\
+		Gating & noise and static anatomy when calculating image differences & the model's ability to capture precise pathological deviations? \\
 		\bottomrule
 	\end{tabular}
 }

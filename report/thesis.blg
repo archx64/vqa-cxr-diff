@@ -25,6 +25,8 @@ Reallocating 'name_of_file' (item size: 1) to 18 items.
 A level-1 auxiliary file: 04-experiment.aux
 Reallocating 'name_of_file' (item size: 1) to 15 items.
 A level-1 auxiliary file: 05-results.aux
+Reallocating 'name_of_file' (item size: 1) to 18 items.
+A level-1 auxiliary file: 06-discussion.aux
 Reallocating 'name_of_file' (item size: 1) to 14 items.
 Reallocating 'name_of_file' (item size: 1) to 13 items.
 A level-1 auxiliary file: appendix.aux
@@ -41,44 +43,44 @@ Reallocating 'wiz_functions' (item size: 4) to 9000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: 08-references.bib
 apacite.bst [2013/07/21 v6.03 APA bibliography style]
-You've used 19 entries,
+You've used 20 entries,
             6951 wiz_defined-function locations,
-            1428 strings with 17477 characters,
-and the built_in function-call counts, 51877 in all, are:
-= -- 6458
-> -- 551
-< -- 2321
-+ -- 2573
-- -- 42
-* -- 3287
-:= -- 8698
-add.period$ -- 100
-call.type$ -- 19
-change.case$ -- 356
+            1435 strings with 17736 characters,
+and the built_in function-call counts, 54238 in all, are:
+= -- 6763
+> -- 578
+< -- 2414
++ -- 2676
+- -- 44
+* -- 3422
+:= -- 9041
+add.period$ -- 106
+call.type$ -- 20
+change.case$ -- 374
 chr.to.int$ -- 0
-cite$ -- 38
-duplicate$ -- 1694
-empty$ -- 1963
-format.name$ -- 971
-if$ -- 9815
+cite$ -- 40
+duplicate$ -- 1772
+empty$ -- 2059
+format.name$ -- 1021
+if$ -- 10286
 int.to.chr$ -- 0
-int.to.str$ -- 57
+int.to.str$ -- 60
 missing$ -- 0
-newline$ -- 605
-num.names$ -- 160
-pop$ -- 1196
+newline$ -- 637
+num.names$ -- 168
+pop$ -- 1266
 preamble$ -- 1
-purify$ -- 94
+purify$ -- 98
 quote$ -- 0
-skip$ -- 3141
+skip$ -- 3301
 stack$ -- 0
-substring$ -- 2979
-swap$ -- 958
-text.length$ -- 146
+substring$ -- 3088
+swap$ -- 996
+text.length$ -- 148
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 2480
+type$ -- 2624
 warning$ -- 0
-while$ -- 375
+while$ -- 391
 width$ -- 0
-write$ -- 798
+write$ -- 843

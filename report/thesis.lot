@@ -5,5 +5,9 @@
 \contentsline {table}{\numberline {2.2}{\ignorespaces Mapping of Proposed Components to Research Gaps}}{8}{table.caption.11}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Quantitative performance comparison of the proposed model against state-of-the-art methods on the MIMIC-Diff-VQA dataset.}}{22}{table.caption.17}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Ablation studies isolating the impact of the Top-$k$ selection threshold, Cross-Image Difference Attention (CIDA), and Counterfactual (CF) regularizer.}}{22}{table.caption.18}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces Quantitative performance comparison of the proposed model against state-of-the-art methods on \cite {medical-diff-vqa}.}}{22}{table.caption.17}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Ablation studies isolating the impact of the Top-$k$ selection threshold, CIDA, and GATE.}}{22}{table.caption.18}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Evaluation scores across different clinical question types using the best performing ALIGN-VQA model (Top-16, CIDA-active, Gate-active).}}{23}{table.caption.19}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }

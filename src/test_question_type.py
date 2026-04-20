@@ -182,7 +182,7 @@ def main(args):
         overall_scores = run_nlg_evaluation(overall_gts, overall_res)
         
         logger.info("Calculating BERTScore for overall set...")
-        # overall_scores.update(get_bert_scores(overall_gts, overall_res))
+        overall_scores.update(get_bert_scores(overall_gts, overall_res))
         
         all_results_dict["overall"] = overall_scores
         for metric, val in overall_scores.items():
@@ -196,7 +196,7 @@ def main(args):
                 type_scores = run_nlg_evaluation(gts_by_type[q_type], res_by_type[q_type])
                 
                 logger.info(f"Calculating BERTScore for {q_type}...")
-                # type_scores.update(get_bert_scores(gts_by_type[q_type], res_by_type[q_type]))
+                type_scores.update(get_bert_scores(gts_by_type[q_type], res_by_type[q_type]))
                 
                 all_results_dict[q_type] = type_scores
                 for metric, val in type_scores.items():

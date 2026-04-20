@@ -1,6 +1,123 @@
 \setlength{\footskip}{8mm}
 
-\chapter{RESULT}
+\chapter{RESULTS}
+	
+It is essential to establish the analytical framework used to evaluate the proposed ALIGN-VQA architecture before detailing empirical findings. The primary objective of these experiments is to rigorously evaluate the clinical viability, computational efficiency, and reasoning accuracy of the model.
+
+To conduct a comprehensive analysis, the author utilized \cite{bleu} to measure precise structural n-gram overlap, \cite{rouge} to evaluate the preservation of the chronological clinical narrative, \cite{meteor} to account for valid semantic synonyms, and \cite{cider} to measure the model’s ability to capture high-value, rare diagnostic keywords. Additionally, \cite{bert-score} was employed to assess deep semantic similarity. The results are structurally aligned with the three core research questions, analyzing the model sequentially through its forward-pass pipeline: establishing spatial alignment, filtering non-pathological noise, and performing targeted token reasoning.
+
+Table \ref{tab:main_results} presents the quantitative performance of the proposed ALIGN-VQA against current state-of-the-art models on the \cite{medical-diff-vqa}. The evaluated baselines include early graph-based methods, retrieval-augmented models, dense-feature frameworks, and residual-based generative models. To isolate the contributions of the core architectural innovations, the author conducted extensive ablation studies, the results of which are detailed in Table \ref{tab:ablation}. The author evaluated the model by systematically toggling the Cross Image Difference Attention (CIDA) module, Learnable Residual Gating Mechanism (GATE), and varying the Top-$k$ threshold in the Question-Guided Difference Tokenizer (QDT).
+
+\begin{table}[htbp]
+	\centering
+	\caption{Quantitative performance comparison of the proposed model against state-of-the-art methods on \cite{medical-diff-vqa}.}
+	\label{tab:main_results}
+	\renewcommand{\arraystretch}{1.2}
+	% Resizebox scales the table to perfectly fit the text width
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{l ccccccc}
+			\toprule
+			\textbf{Model} & \textbf{BLEU-1} & \textbf{BLEU-2} & \textbf{BLEU-3} & \textbf{BLEU-4} & \textbf{METEOR} & \textbf{ROUGE-L} & \textbf{CIDEr} \\
+			\midrule
+			\cite{ekaid}    & 0.624 & 0.541 & 0.477 & 0.422 & 0.337 & 0.645 & 1.893 \\
+			\cite{regiomix} & 0.705 & 0.633 & 0.572 & 0.517 & 0.381 & 0.651 & 1.804 \\
+			\cite{plural}   & 0.704 & 0.633 & 0.575 & 0.520 & 0.381 & 0.653 & 1.832 \\
+			\cite{encoder-decoder}      & 0.716 & 0.647 & 0.590 & 0.537 & 0.389 & 0.670 & 2.119 \\
+			\cite{real}     & 0.710 & 0.636 & 0.580 & 0.530 & 0.395 & 0.736 & 2.409 \\
+			%MENDER   & 0.635 & 0.568 & 0.518 & 0.457 & 0.354 & 0.615 & 1.684 \\
+			\midrule
+			\textbf{ALIGN-VQA} & \textbf{0.653} & \textbf{0.578} & \textbf{0.518} & \textbf{0.466} & \textbf{0.480} & \textbf{0.739} & \textbf{2.427} \\
+			\bottomrule
+		\end{tabular}%
+	}
+\end{table}
+
+\begin{table}[htbp]
+	\centering
+	\caption{Ablation studies isolating the impact of the Top-$k$ selection threshold, CIDA, and GATE.}
+	\label{tab:ablation}
+	\renewcommand{\arraystretch}{1.2}
+	% Resizebox scales the table to perfectly fit the text width
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{c c c c c c c c c c c}
+			\toprule
+			\textbf{Top-$k$} & \textbf{CIDA} & \textbf{GATE} & \textbf{BLEU-1} & \textbf{BLEU-2} & \textbf{BLEU-3} & \textbf{BLEU-4} & \textbf{METEOR} & \textbf{ROUGE-L} & \textbf{CIDEr} & \textbf{BERT-F1} \\
+			\midrule
+			12 & $\times$     & $\times$     & 0.566 & 0.493 & 0.437 & 0.386 & 0.414 & 0.635 & 1.757 & 0.833 \\
+			12 & $\times$     & $\checkmark$ & 0.625 & 0.551 & 0.493 & 0.442 & 0.416 & 0.624 & 1.853 & 0.844 \\
+			12 & $\checkmark$ & $\times$     & 0.623 & 0.553 & 0.499 & 0.449 & 0.459 & 0.676 & 2.118 & 0.849 \\
+			12 & $\checkmark$ & $\checkmark$ & 0.636 & 0.541 & 0.502 & 0.450 & 0.481 & 0.700 & 2.258 & 0.952 \\
+			\midrule
+			49 & $\times$     & $\times$     & 0.600 & 0.527 & 0.470 & 0.420 & 0.416 & 0.619 & 1.923 & 0.942 \\
+			49 & $\checkmark$ & $\times$     & 0.669 & 0.591 & 0.532 & 0.480 & 0.462 & 0.665 & 2.089 & 0.947 \\
+			49 & $\times$     & $\checkmark$ & 0.566 & 0.500 & 0.449 & 0.406 & 0.411 & 0.611 & 1.915 & 0.941 \\
+			49 & $\checkmark$ & $\checkmark$ & 0.631 & 0.555 & 0.496 & 0.445 & 0.480 & 0.713 & 2.226 & 0.948 \\
+			\midrule
+			16 & $\times$     & $\times$     & 0.215 & 0.165 & 0.134 & 0.108 & 0.306 & 0.490 & 1.383 & 0.816 \\
+			16 & $\checkmark$ & $\times$     & 0.643 & 0.565 & 0.504 & 0.453 & 0.457 & 0.660 & 2.172 & 0.875 \\
+			16 & $\times$     & $\checkmark$ & 0.661 & 0.577 & 0.511 & 0.453 & 0.454 & 0.661 & 1.956 & 0.887 \\
+			\midrule
+			\textbf{16} & $\checkmark$ & $\checkmark$ & \textbf{0.653} & \textbf{0.578} & \textbf{0.518} & \textbf{0.466} & \textbf{0.480} & \textbf{0.739} & \textbf{2.427} & \textbf{0.953} \\
+			\bottomrule
+		\end{tabular}%
+	}
+\end{table}
+
+\begin{table}[htbp]
+	\centering
+	\caption{Evaluation scores across different clinical question types using the best performing ALIGN-VQA model (Top-16, CIDA-active, Gate-active).}
+	\label{tab:question_types}
+	\renewcommand{\arraystretch}{1.2}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{l c c c c c c c}
+			\toprule
+			\textbf{Question} & \textbf{BLEU-1} & \textbf{BLEU-2} & \textbf{BLEU-3} & \textbf{BLEU-4} & \textbf{METEOR} & \textbf{ROUGE-L} & \textbf{CIDEr} \\
+			\midrule
+			difference & 0.663 & 0.589 & 0.528 & 0.473 & 0.659 & 0.624 & 2.177 \\
+			presence   & 0.849 & 0.009 & 0.001 & 0.000 & 0.424 & 0.849 & 2.123 \\
+			abnormality& 0.605 & 0.520 & 0.518 & 0.414 & 0.367 & 0.599 & 1.904 \\
+			location   & 0.616 & 0.489 & 0.359 & 0.275 & 0.540 & 0.668 & 2.496 \\
+			level      & 0.653 & 0.007 & 0.001 & 0.000 & 0.395 & 0.598 & 1.984 \\
+			view       & 0.979 & 0.965 & 0.098 & 0.001 & 0.649 & 0.982 & 3.343 \\
+			type       & 0.706 & 0.008 & 0.001 & 0.000 & 0.360 & 0.720 & 1.900 \\
+			\midrule
+			\textbf{overall} & \textbf{0.653} & \textbf{0.578} & \textbf{0.518} & \textbf{0.466} & \textbf{0.480} & \textbf{0.739} & \textbf{2.427} \\
+			\bottomrule
+		\end{tabular}%
+	}
+\end{table}
+
+
+
+\section{Results Corresponding to CIDA}
+The first research question investigates how semantic reconstruction via the CIDA module affects the model's robustness to spatial misalignments between historical and current scans. The author hypothesized that establishing a misalignment-tolerant baseline is required before calculating image differences. To evaluate this, the author conducted an ablation study comparing a baseline model utilizing direct feature subtraction against the ALIGN-VQA model equipped with CIDA. The results drawn from the comprehensive ablation studies demonstrate a severe vulnerability in direct subtraction methods.
+
+When observing the model operating with a token pool of 16, the baseline model lacking both CIDA and GATE completely collapsed, achieving CIDEr, \cite{cider},  of just 1.383 and BLEU-4, \cite{bleu}, of 0.108. However, when the CIDA module was activated to semantically align the features prior to comparison, performance surged dramatically. The score of CIDEr improved by +0.789 to reach 2.172, while BLEU-4 improved to 0.453. This massive performance delta mathematically validates Hypothesis 1, proving that raw spatial misalignment is a primary cause of catastrophic failure in longitudinal VQA, and that CIDA successfully reconstructs the features to enable accurate temporal comparison.
+
+\section{Results Corresponding to GATE}
+The second research question asks how the application of a learnable residual gating mechanism impacts the model's ability to capture precise pathological deviations. The author hypothesized that filtering out non-pathological noise, such as changes in patient posture or scanner contrast, from the raw residual features would yield higher diagnostic accuracy.
+
+The ablation results on the specific difference question subset strongly support this hypothesis. Even with active CIDA module, processing raw, un-gated residuals resulted in a CIDEr score of 2.081. When GATE was introduced to selectively suppress static anatomy and acquisition artifacts, the CIDEr score increased to 2.177, and the BERT-F1, \cite{bert-score}, score rose from 0.917 to 0.929. This impact is even more pronounced on the overall dataset evaluation. Activating the gating mechanism alongside CIDA pushed the model to its absolute peak performance: a CIDEr score of 2.427 and a ROUGE-L, \cite{rouge}, of 0.739. By comparing the gated vs. un-gated architectures, the author confirms that forcing the language decoder to process noisy subtraction maps degrades clinical accuracy, whereas the gating mechanism successfully isolates the true pathologies.
+
+\section{Results Corresponding to QDT}
+The last research question evaluates whether selectively pooling temporal changes via the QDT impacts the model's targeted reasoning and overall efficiency. The author hypothesized that because the vast majority of pixels in a longitudinal chest X-ray remain unchanged, a sparse set of highly relevant tokens is sufficient—and often superior—for answering clinical questions. The author tested the model across three different token densities.
+
+Processing the denser 49 tokens yielded a CIDEr score of 2.226. Pruning the features down to 16 tokens improved the CIDEr score to 2.427. Over-pruning to 12 tokens caused performance to drop to 2.258. These results are highly significant. They prove that retaining too much visual information by processing dense features actually harms the model by introducing distracting, irrelevant visual features. The QDT module at Top-16 perfectly balances computational efficiency with diagnostic accuracy, effectively pruning away the background and forcing the model to focus only on the region of interest dictated by the question.
+
+
+\section{Further Analysis}
+\subsection{Comparison with State of the Art Models}
+To validate the overall architecture, ALIGN-VQA was benchmarked against leading state-of-the-art Medical VQA models, including EKAID, RegioMix, PLURAL, VED, and ReAI.
+ALIGN-VQA achieved the highest overall performance across the most stringent clinical metrics. Most notably, ALIGN-VQA achieved a CIDEr score of 2.427, outperforming the closest baseline (ReAI at 2.409) and vastly exceeding traditional architectures like EKAID (1.893). Furthermore, ALIGN-VQA secured the highest ROUGE-L score (0.739), indicating that the architecture is superior at preserving the correct chronological and relational structure of the diagnostic narrative compared to existing models.
+
+\subsection{Analyzing Distribution Across Question Types}
+Because clinical queries vary drastically in complexity, we further analyzed the performance of the best model (Top-16, CIDA-active, Gate-active) across distinct question categories. The model showed exceptional performance on simpler, highly structured tasks such as view questions (CIDEr: 3.343, BLEU-1: 0.979) and location questions (CIDEr: 2.496).
+
+\subsection{Human Evaluation and Error Analysis}
+All test samples are manually evaluated beyond Exact Match (EM). While EM was 51.1\%, manual assessment showed 50\% fully correct, 30\% partially correct, and 20\% incorrect predictions. Partial errors mainly involved incomplete specification or minor lexical variations. Performance was strongest for structured categories (type, view: 93.7\% correct), whereas more complex categories (abnormality, difference) showed greater variability (55.8\% fully correct, 25.0\% partially incorrect, 18.8\% incorrect), reflecting the challenge of fine-grained pathology characterization and comparative reasoning. Importantly, no systematic localization failures were observed, and most errors resulted from partial specification rather than clinically
+misleading predictions.
+
+\begin{comment}
 First remind your readers how you analyze the data in detail here before jumping to results
 
 \textbf{One good way is to sectionize your result based on your research questions.
@@ -41,3 +158,4 @@ BART (Full-fine-tuning)                                      & \textbf{45.14}   
 You can further analyze your results by digger deeper to your data.  Researchers love this!!
 \subsection{Ablation Studies}
 \subsection{Analyzing Distribution}
+\end{comment}
